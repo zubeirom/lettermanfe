@@ -1,29 +1,36 @@
 import Base from "ember-simple-auth/authenticators/base";
-import { isEmpty } from "@ember/utils";
-import axios from "axios";
 import ENV from "../config/environment";
-
+import { inject as service } from "@ember/service";
+import RSVP from "rsvp";
 
 export default Base.extend({
-  restore(data) {
-    return new Promise((resolve, reject) => {
-      if (!isEmpty(data.token)) {
-        resolve(data);
-      } else {
-        reject();
-      }
-    });
-  },
+  torii: service(),
+  session: service(),
+  ajax: service(),
 
-  async authenticate(/*args*/) {
-    console.log("triggered");
-    
-    const payload = await axios.get(`${ENV.host}/api/auth/google-url`);
-    const { data } = payload;
-    window.open(data);
-  },
+  async authenticate(provider, options) {
+    try {
+      const res = await this.torii.open(provider, options);
+      const { authorizationCode } = res;
+      const _url = `${ENV.host}/api/auth/google-auth`;
 
-  invalidate(data) {
-    return Promise.resolve(data);
+      return RSVP.Promise((resolve, reject) => {
+        return this.ajax
+          .request(_url, {
+            type: "POST",
+            dataType: "json",
+            data: authorizationCode,
+            success: resolve,
+            error: reject
+          })
+          .then(response => {
+            return {
+              access_token: response.access_token
+            };
+          });
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }
 });

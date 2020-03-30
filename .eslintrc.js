@@ -9,7 +9,9 @@ module.exports = {
   env: {
     browser: true
   },
-  rules: {},
+  rules: {
+    "no-console": 0
+  },
   overrides: [
     // node files
     {
@@ -36,7 +38,6 @@ module.exports = {
         require("eslint-plugin-node").configs.recommended.rules,
         {
           "node/no-unpublished-require": "off",
-          "no-console": 0
         }
       )
     }

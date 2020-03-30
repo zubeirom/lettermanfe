@@ -1,6 +1,3 @@
-import Base from 'ember-simple-auth/authorizers/base';
+import OAuth2Bearer from 'ember-simple-auth/authorizers/oauth2-bearer';
 
-export default Base.extend({
-  authorize(/*data, block*/) {
-  }
-});
+export default OAuth2Bearer.extend();

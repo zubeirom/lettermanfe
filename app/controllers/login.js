@@ -1,16 +1,17 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { set } from '@ember/object';
 
 export default Controller.extend({
     session: service(),
 
     actions: {
         authGoogle() {
-            this.session.authenticate('authenticator:google', {})
+            this.session.authenticate('authenticator:google', 'google-oauth2')
             .catch(reason => {
-                set('errorMessage', reason.error || reason);
+                console.error(reason)
             })
+
+            console.log(this.session)
         },
 
         authFacebook() {
@@ -19,6 +20,10 @@ export default Controller.extend({
 
         authLinkedin() {
 
+        },
+
+        invalidate() {
+            this.session.invalidate();
         }
     }
 });
