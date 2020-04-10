@@ -26,11 +26,17 @@ module.exports = function(environment) {
       providers: {
         sessionServiceName: 'session',
         'google-oauth2': {
-          apiKey: '438922714373-a3oi1aa21em17bj0hsi2qpmg6s59tsj0.apps.googleusercontent.com',
+          apiKey: process.env.G_CLIENT_ID,
           redirectUri: 'http://localhost:4200/torii/redirect.html',
           scope: 'https://www.googleapis.com/auth/userinfo.email'
         }
       }
+    },
+
+    firebase: {
+      apiKey: process.env.FIREBASE_KEY,
+      authDomain: process.env.AUTH_DOMAIN,
+      projectId: process.env.FIREBASE_PID
     }
   };
 

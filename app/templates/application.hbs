@@ -1,2 +1,8 @@
-
+{{#if session.isAuthenticated}}
+  <button class="ui button" {{action "invalidate"}}>Logout</button>
+{{else}}
+  {{#link-to "login"}}
+    Login
+  {{/link-to}}
+{{/if}}
 {{outlet}}
