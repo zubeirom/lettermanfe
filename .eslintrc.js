@@ -11,7 +11,7 @@ module.exports = {
   },
   rules: {
     "no-console": 0,
-    "indent": ["error", 4]
+    "indent": ["error", 2]
   },
   overrides: [
     // node files

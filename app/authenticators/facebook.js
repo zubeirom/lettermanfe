@@ -1,12 +1,12 @@
 import Base from 'ember-simple-auth/authenticators/base';
 
 export default Base.extend({
-    restore() {
-    },
+  restore() {
+  },
 
-    authenticate(/*args*/) {
-    },
+  authenticate(/*args*/) {
+  },
 
-    invalidate() {
-    }
+  invalidate() {
+  }
 });
