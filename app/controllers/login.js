@@ -5,39 +5,49 @@ import firebase from 'firebase/app';
 export default Controller.extend({
   session: service(),
   firebaseApp: service(),
+  toast: service('toast'),
+
+  checkIfAlreadyUsedEmail(code) {
+    if(code === "auth/account-exists-with-different-credential") {
+      this.toast.error('The Email Address is already being used by a different social provider', 'Error');
+    } 
+  },
 
   actions: {
     async authGoogle() {
       try {
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.GoogleAuthProvider();
-        return auth.signInWithPopup(provider);
+        return auth.signInWithPopup(provider).catch(e => {
+          this.checkIfAlreadyUsedEmail(e.code)
+        });
       } catch (error) {
         console.error(error);
       }
-      console.log(this.session)
     },
 
     async authFacebook() {
       try {
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.FacebookAuthProvider();
-        return auth.signInWithPopup(provider);
+        return auth.signInWithPopup(provider).catch(e => {
+          this.checkIfAlreadyUsedEmail(e.code)
+        });
       } catch (error) {
         console.error(error);
       }
-      console.log(this.session)
     },
 
     async authTwitter() {
       try {
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.TwitterAuthProvider();
-        return auth.signInWithPopup(provider);
+        return auth.signInWithPopup(provider).catch(e => {
+          this.checkIfAlreadyUsedEmail(e.code)
+        });
       } catch (error) {
         console.error(error);
       }
-      console.log(this.session)
     },
 
     async authGithub() {
@@ -45,7 +55,7 @@ export default Controller.extend({
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.GithubAuthProvider();
         return auth.signInWithPopup(provider).catch(e => {
-          console.log(e.code);
+          this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
         console.error(error);
@@ -57,7 +67,7 @@ export default Controller.extend({
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.OAuthProvider('microsoft.com');
         return auth.signInWithPopup(provider).catch(e => {
-          console.log(e.code);
+          this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
         console.error(error);

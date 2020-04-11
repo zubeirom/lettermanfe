@@ -1,8 +1,3 @@
-{{#if session.isAuthenticated}}
-  Logged in as {{ session.data.authenticated.user.displayName }} 
-{{/if}}
-<br>
-<br>
-{{#each model as |letter|}}
-  Letter: {{letter.title}}
-{{/each}}
+{{#link-to "login" class="ui button"}}
+  Login
+{{/link-to}}
