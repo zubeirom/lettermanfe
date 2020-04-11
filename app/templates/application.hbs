@@ -1,1 +1,234 @@
-{{outlet}}
+{{!-- template-lint-disable no-inline-styles --}}
+<style type="text/css">
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: grayscale;
+  }
+
+  #sidebar {
+    background: linear-gradient(to bottom, #04053A, #0D0E8B);
+    position: fixed;
+    height: 100vh;
+    padding-top: 68px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #sidebar .ui.menu>a.item {
+    padding: 10px 20px;
+    line-height: 20px;
+    color: white;
+    border-radius: 0 !important;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  #sidebar .ui.menu>a.item.active {
+    background-color: #337ab7;
+    color: white;
+    border: none !important;
+  }
+
+  #sidebar .ui.menu>a.item:hover {
+    background-color: #eee;
+    color: #04053A !important;
+  }
+
+  #content {
+    padding-top: 56px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #content h1 {
+    font-size: 36px;
+  }
+
+  #content .ui.dividing.header {
+    width: 100%;
+  }
+
+  .ui.centered.small.circular.image {
+    margin-top: 14px;
+    margin-bottom: 14px;
+  }
+
+  .ui.borderless.menu {
+    box-shadow: none;
+    flex-wrap: wrap;
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .ui.mobile.only.grid .ui.menu .ui.vertical.menu {
+    display: none;
+  }
+
+  #menu {
+    background-color: #04053A;
+    border-bottom: 1px solid white
+  }
+  
+  #mobmenu {
+    background: linear-gradient(to bottom, #04053A, #0D0E8B);
+  }
+
+  #label {
+    color: #FC820E;
+  }
+   
+</style>
+<script>
+  function toggleSidebar() {
+    $('.ui.sidebar').sidebar('toggle');
+  }
+</script>
+{{#if session.isAuthenticated}}
+  <div class="ui tablet computer only padded grid">
+    <div class="ui inverted borderless top fixed fluid massive menu" id="menu">
+      <a class="item">
+      </a>
+      <a href="/" class="header item" id="menu-header">
+        Letterman
+      </a>
+      <div class="right menu">
+        <a class="item">Dashboard</a> 
+        <a class="item">
+          <i class="fas fa-plus"></i> &nbsp;&nbsp;
+          New Letter
+        </a>
+        <a class="item">
+          <i class="fas fa-cog">
+          </i> &nbsp;&nbsp;
+          Manage Labels
+        </a>
+        <a class="item">
+          <img class="ui avatar image" src={{session.data.authenticated.user.photoURL}} alt="avatar"> &nbsp;
+          {{session.data.authenticated.user.displayName}}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="ui mobile only padded grid">
+    <div class="ui top fixed borderless fluid inverted menu" id="menu">
+      <div class="item">
+        <button class="ui icon toggle basic inverted button" onclick="toggleSidebar()">
+          <i class="content icon"></i>
+        </button>
+      </div>
+      <div class="right menu">
+        <a href="/" class="header item" id="menu-header">
+          Letterman
+        </a>
+      </div>
+      <div class="ui sidebar vertical menu" id="mobmenu">
+        <a class="item" id="mobitem">
+          <img src={{session.data.authenticated.user.photoURL}} alt="avatar" class="ui avatar image"> &nbsp;
+          {{session.data.authenticated.user.displayName}}
+        </a>
+        <a class="item" id="mobitem">
+          <i class="fas fa-plus"></i> &nbsp;&nbsp;
+          New Letter
+        </a>
+        <div style="height: 400px;">
+          {{#ember-scrollable autoHide=false}}
+            <a class="item" id="mobitem">
+              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
+              Invoices
+            </a>
+            <a class="item" id="mobitem">
+              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
+              Invoices
+            </a>
+            <a class="item" id="mobitem">
+              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
+              Invoices
+            </a>
+            <a class="item" id="mobitem">
+              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
+              Invoices
+            </a>
+            <a class="item" id="mobitem">
+              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
+              Invoices
+            </a>
+            <a class="item" id="mobitem">
+              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
+              Invoices
+            </a>
+            <a class="item" id="mobitem">
+              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
+              Invoices
+            </a>
+            <a class="item" id="mobitem">
+              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
+              Invoices
+            </a>
+            <a class="item" id="mobitem">
+              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
+              Invoices
+            </a>
+          {{/ember-scrollable}}
+        </div>
+        <a class="item" id="mobitem">
+          <i class="fas fa-cog"></i> &nbsp;&nbsp;
+          Manage Labels
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="ui padded grid">
+    <div class="three wide tablet only three wide computer only column" id="sidebar">
+      <div style="height: 825px">
+        {{#ember-scrollable}}
+          <div class="ui vertical borderless fluid text menu">
+            <a class="item">Overview</a> <a class="item">Reports</a>
+            <a class="item">Analytics</a> <a class="item">Export</a>
+            <div class="ui hidden divider"></div>
+            <a class="item">Nav item</a> <a class="item">Nav item again</a>
+            <a class="item">One more nav</a> <a class="item">Another nav item</a>
+            <a class="item">More navigation</a>
+            <div class="ui hidden divider"></div>
+            <a class="item">Macintosh</a> <a class="item">Linux</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+            <a class="item">Windows</a>
+          </div>
+        {{/ember-scrollable}}
+      </div>
+    </div>
+    <div class="sixteen wide mobile thirteen wide tablet thirteen wide computer right floated column" id="content">
+      <div class="ui padded grid">
+        <br>
+        <br>
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+{{/if}}
