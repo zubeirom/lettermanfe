@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "toastr": "^2.1.4",
     "torii": "^0.10.1"
   }
 }

@@ -1,22 +1,78 @@
-<div class="ui center aligned segment">
-  <br>
-  <br>
-  <br>
-  <button class="ui google plus button" {{action "authGoogle"}}>Google</button>
-  <br>
-  <br>
-  <br>
-  <button class="ui facebook button" {{action "authFacebook"}}>Facebook</button>
-  <br>
-  <br>
-  <br>
-  <button class="ui twitter button" {{action "authTwitter"}}>Twitter</button>
-  <br>
-  <br>
-  <br>
-  <button class="ui secondary button" {{action "authGithub"}}>GitHub</button>
-  <br>
-  <br>
-  <br>
-  <button class="ui basic button" {{action "authMicrosoft"}}>Microsoft</button>
+<style>
+  body {
+    background: linear-gradient(to right, #4286f4, #373B44);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  body>.ui.grid {
+    height: 100%;
+  }
+
+  .column {
+    max-width: 450px;
+  }
+
+  #header {
+    color: white
+  }
+
+  #link {
+    font-size: 12px;
+  }
+
+  #link:hover {
+    text-decoration: underline;
+  }
+
+  #sb {
+    border-radius: 100px;
+  }
+</style>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="ui middle aligned center aligned stackable grid ">
+  <div class="column">
+    <h2 class="ui basic center aligned header" id="log-header">
+      <img class="image" src="letterman_logo.png" alt="letterman"> Sign-In to your Account
+    </h2>
+    <div class="ui center aligned raised segment">
+      <h3 class="ui small center aligned header">Quick and convenient access without having to register</h3>
+      <br>
+      <div class="ui vertical buttons">
+        <button class="ui circular google plus button" {{action "authGoogle"}} id="sb">
+          <i class="fab fa-google"></i>
+          Sign In Via Google
+        </button>
+        <br>
+        <button class="ui circular  facebook button" {{action "authFacebook"}} id="sb">
+          <i class="fab fa-facebook"></i>
+          Sign In Via Facebook
+        </button>
+        <br>
+
+        <button class="ui circular  twitter button" {{action "authTwitter"}}  id="sb">
+          <i class="fab fa-twitter"></i>
+          Sign In Via Twitter
+        </button>
+        <br>
+        <button class="ui circular secondary button" {{action "authGithub"}} id="sb">
+          <i class="fab fa-github"></i>
+          Sign In Via GitHub
+        </button>
+        <br>
+        <button class="ui circular secondary basic button" {{action "authMicrosoft"}} id="sb">
+          <i class="fab fa-microsoft"></i>
+          Sign In Via Microsoft
+        </button>
+      </div>
+      <br>
+      <br>
+      <br>
+      <a href="" id="link">Privacy Policy</a> - <a href="" id="link">Terms of Service</a>
+    </div>
+  </div>
 </div>
