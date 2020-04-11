@@ -1,1 +1,16 @@
-logged in fam 
+<div class="row">
+  <h1 class="ui huge dividing header">My Dashboard</h1>
+</div>
+<div class="row">
+  <div class="ui raised stackable cards">
+    {{#each model as |letter|}}
+      <div class="card">
+        <div class="content">
+          <div class="header">{{letter.title}}</div>
+          <div class="meta">Last Update: {{moment-from-now letter.updatedAt}}</div>
+          <div class="description">{{letter.content}}</div>
+        </div> 
+      </div>
+    {{/each}}
+  </div>
+</div>

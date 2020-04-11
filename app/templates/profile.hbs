@@ -1,10 +1,9 @@
 <h1 class="ui dividing header">My Account</h1>
 <br>
 <br>
-<h2 class="ui header">
+<h2 class="ui header header">
   <img src={{session.data.authenticated.user.photoURL}} class="ui circular image" alt="avatar">
   {{session.data.authenticated.user.displayName}}
 </h2>
-<br>
 
 <button class="ui secondary button" {{action "invalidate"}}>Logout</button>

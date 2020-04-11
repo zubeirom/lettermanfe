@@ -85,7 +85,7 @@
   }
 </script>
 {{#if session.isAuthenticated}}
-  <div class="ui tablet computer only padded grid">
+  <div class="ui computer only padded grid">
     <div class="ui inverted borderless top fixed fluid massive menu" id="menu">
       <a class="item">
       </a>
@@ -111,7 +111,7 @@
     </div>
   </div>
   {{!-- MOBILE START --}}
-  <div class="ui mobile only padded grid">
+  <div class="ui tablet mobile only padded grid">
     <div class="ui top fixed borderless fluid inverted menu" id="menu">
       <div class="item">
         <button class="ui icon toggle basic inverted button" onclick="toggleSidebar()">
@@ -124,11 +124,11 @@
         </a>
       </div>
       <div class="ui left demo vertical inverted sidebar menu" id="mobmenu">
-        {{#link-to "profile" class="item" id="mobitem"}}
+        {{#link-to "profile" class="item"}}
           <img src={{session.data.authenticated.user.photoURL}} alt="avatar" class="ui avatar image"> &nbsp;
           {{session.data.authenticated.user.displayName}}
         {{/link-to}}
-        {{#link-to "letters.new" class="item" id="mobitem"}}
+        {{#link-to "letters.new" class="item"}}
           <i class="fas fa-plus"></i> &nbsp;&nbsp;
           New Letter
         {{/link-to}}
@@ -172,6 +172,10 @@
             </a>
           {{/ember-scrollable}}
         </div>
+        {{#link-to "dashboard" class="item"}}
+          <i class="fas fa-clipboard"></i> &nbsp; &nbsp;
+          Dashboard
+        {{/link-to}}
         <a class="item" id="mobitem">
           <i class="fas fa-cog"></i> &nbsp;&nbsp;
           Manage Labels
@@ -181,7 +185,7 @@
   </div>
   {{!-- MOBILE END --}}
   <div class="ui padded grid">
-    <div class="three wide tablet only three wide computer only column" id="sidebar">
+    <div class="three wide computer only column" id="sidebar">
       <div style="height: 825px">
         {{#ember-scrollable}}
           <div class="ui vertical borderless fluid text menu">
@@ -225,14 +229,14 @@
         {{/ember-scrollable}}
       </div>
     </div>
-    <div class="sixteen wide mobile thirteen wide tablet thirteen wide computer right floated column" id="content">
+    <div class="sixteen wide mobile sixteen wide tablet thirteen wide computer right floated column" id="content">
       <div class="ui padded grid">
-        <br>
-        <br>
         {{outlet}}
       </div>
     </div>
   </div>
 {{else}}
-  {{outlet}}
+  {{#if (eq session.isAuthenticated false)}}
+    {{outlet}}
+  {{/if}}
 {{/if}}
