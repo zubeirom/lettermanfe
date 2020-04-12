@@ -1,21 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kumar+One&display=swap");
 
-#log-header { 
-    font-family: 'Poppins', sans-serif;
-    color: white
+#log-header {
+  font-family: "Poppins", sans-serif;
+  color: white;
 }
 
 .header {
-    font-family: 'Poppins', sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
 }
 
 #menu-header {
-    font-family: 'Kumar One', cursive !important;
-    font-size: 22px;
+  font-family: "Kumar One", cursive !important;
+  font-size: 17px;
 }
 
-.item {
-    color: white !important;
-    font-family: 'Poppins', sans-serif !important;
-} 
+#carddesc {
+  display: inline-block;
+  word-break: break-word;
+}
+
+#mobmenuheader {
+  font-family: "Kumar One", cursive !important;
+  font-size: 17px;
+}
+
+#uploadButton {
+  background-color: #04053a;
+  color: white
+}

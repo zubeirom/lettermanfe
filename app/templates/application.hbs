@@ -69,6 +69,11 @@
     background-color: #04053A;
     border-bottom: 1px solid white
   }
+
+  .item {
+    color: white !important;
+    font-family: "Poppins", sans-serif !important;
+  }
   
   #mobmenu {
     background: linear-gradient(to bottom, #04053A, #0D0E8B);
@@ -86,27 +91,28 @@
 </script>
 {{#if session.isAuthenticated}}
   <div class="ui computer only padded grid">
-    <div class="ui inverted borderless top fixed fluid massive menu" id="menu">
-      <a class="item">
-      </a>
+    <div class="ui inverted borderless top fixed fluid menu" id="menu">
       <a href="/" class="header item" id="menu-header">
         Letterman
       </a>
       <div class="right menu">
-        <a class="item">Dashboard</a> 
-        <a class="item">
+        {{#link-to "dashboard" class="item"}}
+          Dashboard
+        {{/link-to}}
+        {{#link-to "letters.new" class="item"}}
           <i class="fas fa-plus"></i> &nbsp;&nbsp;
-          New Letter
-        </a>
+          New Document
+        {{/link-to}}
         <a class="item">
           <i class="fas fa-cog">
           </i> &nbsp;&nbsp;
           Manage Labels
         </a>
-        <a class="item">
+        {{#link-to "profile" class="item"}}
           <img class="ui avatar image" src={{session.data.authenticated.user.photoURL}} alt="avatar"> &nbsp;
           {{session.data.authenticated.user.displayName}}
-        </a>
+        {{/link-to}}
+        
       </div>
     </div>
   </div>
@@ -119,7 +125,7 @@
         </button>
       </div>
       <div class="right menu">
-        <a href="/" class="header item" id="menu-header">
+        <a href="/" class="header item" id="mobmenuheader">
           Letterman
         </a>
       </div>
@@ -130,7 +136,7 @@
         {{/link-to}}
         {{#link-to "letters.new" class="item"}}
           <i class="fas fa-plus"></i> &nbsp;&nbsp;
-          New Letter
+          New Document
         {{/link-to}}
         <div style="height: 400px">
           {{#ember-scrollable autoHide=false}}
@@ -172,7 +178,7 @@
             </a>
           {{/ember-scrollable}}
         </div>
-        {{#link-to "dashboard" class="item"}}
+        {{#link-to "dashboard" class="item" onclick="toggleSidebar()"}}
           <i class="fas fa-clipboard"></i> &nbsp; &nbsp;
           Dashboard
         {{/link-to}}
@@ -230,13 +236,11 @@
       </div>
     </div>
     <div class="sixteen wide mobile sixteen wide tablet thirteen wide computer right floated column" id="content">
-      <div class="ui padded grid">
-        {{outlet}}
-      </div>
+      <br>
+      <br>
+      {{outlet}}
     </div>
   </div>
 {{else}}
-  {{#if (eq session.isAuthenticated false)}}
-    {{outlet}}
-  {{/if}}
+  {{outlet}}
 {{/if}}

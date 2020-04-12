@@ -9,10 +9,9 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('login');
   this.route('dashboard');
-
   this.route('letters', function() {
     this.route('new');
-    this.route('info', function() {
+    this.route('info', {path: ':letter_id'}, function() {
       this.route('edit');
     });
   });
