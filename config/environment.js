@@ -67,8 +67,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.host = "https://api-letterman.herokuapp.com";
     // here you can enable a production-specific feature
   }
-
   return ENV;
 };
