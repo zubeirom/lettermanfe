@@ -6,7 +6,7 @@
 <div class="center aligned row">
   <div class="ui left icon input">
     <i class="search icon"></i>
-    {{input value=value placeholder="Search document..." type="text"}}
+    {{input value=searchValue placeholder="Search document..." type="text" keyUp=(action "search" searchValue)}}
   </div>
 </div>
 <br>
