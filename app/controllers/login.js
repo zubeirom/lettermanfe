@@ -10,7 +10,9 @@ export default Controller.extend({
   checkIfAlreadyUsedEmail(code) {
     if(code === "auth/account-exists-with-different-credential") {
       this.toast.error('The Email Address is already being used by a different social provider', 'Error');
-    } 
+    } else {
+      this.toast.error('Something went wrong', 'Error');
+    }
   },
 
   actions: {
@@ -23,6 +25,7 @@ export default Controller.extend({
         });
       } catch (error) {
         console.error(error);
+        this.toast.error('Something went wrong', 'Error');
       }
     },
 
@@ -34,6 +37,7 @@ export default Controller.extend({
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
+        this.toast.error('Something went wrong', 'Error');
         console.error(error);
       }
     },
@@ -46,6 +50,7 @@ export default Controller.extend({
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
+        this.toast.error('Something went wrong', 'Error');
         console.error(error);
       }
     },
@@ -58,6 +63,7 @@ export default Controller.extend({
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
+        this.toast.error('Something went wrong', 'Error');
         console.error(error);
       }
     },
@@ -70,6 +76,7 @@ export default Controller.extend({
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
+        this.toast.error('Something went wrong', 'Error');
         console.error(error);
       }
     },
