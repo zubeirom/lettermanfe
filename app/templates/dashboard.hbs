@@ -5,14 +5,14 @@
 <div class="center aligned row">
   <div class="ui left icon input">
     <i class="search icon"></i>
-    {{input value=value placeholder="Search letter..." type="text"}}
+    {{input value=value placeholder="Search document..." type="text"}}
   </div>
 </div>
 <br>
 <div class="row">
   <div class="ui raised stackable cards">
     {{#each model as |letter|}}
-      {{#link-to "letters.info" letter.id  class="card"}}
+      {{#link-to "letters.info" letter.id  class="violet card"}}
         <div class="content">
           <div class="header">
             {{#if letter.title}}
@@ -26,7 +26,7 @@
         </div>
         <div class="extra content">
           {{#each letter.label as |label|}}
-            <a class="ui basic label">{{label}}</a>
+            <div class="ui orange label">{{label}}</div>
           {{/each}}
         </div>
       {{/link-to}}

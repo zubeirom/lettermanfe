@@ -1,0 +1,22 @@
+<div class="ui dividing header">Manage Labels</div>
+
+<div class="ui form">
+  <div class="field">
+    <label for="">Enter label and press enter</label>
+    <div class="ui icon input">
+      <i class="plus icon"> </i>
+      {{input value=newLabel enter=(action "createLabel") placeholder="Type new label..."}}
+    </div> <br><br>
+  </div>
+  <div class="field">
+    <label for="">Click on label to Delete</label>
+    {{#each model as |label|}}
+      <div class="ui orange label" role="button" {{action "deleteLabel" label}}>
+        <i class="trash icon"></i>
+        {{label.name}}
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+{{outlet}}

@@ -103,11 +103,11 @@
           <i class="fas fa-plus"></i> &nbsp;&nbsp;
           New Document
         {{/link-to}}
-        <a class="item">
+        {{#link-to "manage-labels" class="item"}}
           <i class="fas fa-cog">
           </i> &nbsp;&nbsp;
           Manage Labels
-        </a>
+        {{/link-to}}
         {{#link-to "profile" class="item"}}
           <img class="ui avatar image" src={{session.data.authenticated.user.photoURL}} alt="avatar"> &nbsp;
           {{session.data.authenticated.user.displayName}}
@@ -134,58 +134,30 @@
           <img src={{session.data.authenticated.user.photoURL}} alt="avatar" class="ui avatar image"> &nbsp;
           {{session.data.authenticated.user.displayName}}
         {{/link-to}}
+        <a class="item">My Labels:</a>
+        <div style="height: 400px">
+          {{#ember-scrollable autoHide=false}}
+            {{#each model as |label|}}
+              {{#link-to "labels.info" label.id class="item"}}
+                <i class="fas fa-tag"></i>&nbsp;&nbsp;
+                {{label.name}}
+              {{/link-to}}
+            {{/each}}
+          {{/ember-scrollable}}
+        </div>
         {{#link-to "letters.new" class="item"}}
           <i class="fas fa-plus"></i> &nbsp;&nbsp;
           New Document
         {{/link-to}}
-        <div style="height: 400px">
-          {{#ember-scrollable autoHide=false}}
-            <a class="item" id="mobitem">
-              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
-              Invoices
-            </a>
-            <a class="item" id="mobitem">
-              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
-              Invoices
-            </a>
-            <a class="item" id="mobitem">
-              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
-              Invoices
-            </a>
-            <a class="item" id="mobitem">
-              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
-              Invoices
-            </a>
-            <a class="item" id="mobitem">
-              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
-              Invoices
-            </a>
-            <a class="item" id="mobitem">
-              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
-              Invoices
-            </a>
-            <a class="item" id="mobitem">
-              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
-              Invoices
-            </a>
-            <a class="item" id="mobitem">
-              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
-              Invoices
-            </a>
-            <a class="item" id="mobitem">
-              <i class="fas fa-tag" id="label"></i> &nbsp;&nbsp;
-              Invoices
-            </a>
-          {{/ember-scrollable}}
-        </div>
         {{#link-to "dashboard" class="item" onclick="toggleSidebar()"}}
           <i class="fas fa-clipboard"></i> &nbsp; &nbsp;
           Dashboard
         {{/link-to}}
-        <a class="item" id="mobitem">
-          <i class="fas fa-cog"></i> &nbsp;&nbsp;
+        {{#link-to "manage-labels" class="item"}}
+          <i class="fas fa-cog">
+          </i> &nbsp;&nbsp;
           Manage Labels
-        </a>
+        {{/link-to}}
       </div>
     </div>
   </div>
@@ -197,10 +169,10 @@
           <div class="ui vertical borderless fluid text menu">
             <a class="item">Labels: </a>
             {{#each model as |label|}}
-              <a class="item">
-                <i class="fas fa-tag"></i> &nbsp;&nbsp;
+              {{#link-to "labels.info" label.id class="item"}}
+                <i class="fas fa-tag"></i>&nbsp;&nbsp;
                 {{label.name}}
-              </a>
+              {{/link-to}}
             {{/each}}
           </div>
         {{/ember-scrollable}}

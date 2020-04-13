@@ -16,9 +16,10 @@ Router.map(function() {
     });
   });
   this.route('labels', function() {
-    this.route('info');
+    this.route('info', {path: ':label_id'});
   });
   this.route('profile');
+  this.route('manage-labels');
 });
 
 export default Router;
