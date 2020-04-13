@@ -23,6 +23,19 @@
     {{content-for "head-footer"}}
   </head>
   <body>
+    <div class="ember-load-indicator">
+      <div id="loader-background" class="ui active center inline dimmer">
+        <div class="sk-folding-cube">
+          <div class="sk-cube1 sk-cube"></div>
+          <div class="sk-cube2 sk-cube"></div>
+          <div class="sk-cube4 sk-cube"></div>
+          <div class="sk-cube3 sk-cube"></div>
+        </div>
+        <h1 class="ui white header" id="load-header" style="color: white">Letterman
+          <div class="sub header" style="color: white" id="loadsubheader">Digitize your Documents</div>
+        </h1>
+      </div>
+    </div>
     {{content-for "body"}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>

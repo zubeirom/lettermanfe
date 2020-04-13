@@ -40,6 +40,7 @@
     "ember-data": "~3.12.0",
     "ember-export-application-global": "^2.0.0",
     "ember-file-upload": "^3.0.2",
+    "ember-load": "0.0.17",
     "ember-load-initializers": "^2.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-moment": "^8.0.0",
