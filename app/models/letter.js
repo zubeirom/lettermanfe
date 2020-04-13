@@ -7,5 +7,5 @@ export default Model.extend({
   imageUrl: DS.attr(),
   label: DS.attr(),
   createdAt: DS.attr(),
-  updateAt: DS.attr()
+  updatedAt: DS.attr()
 });

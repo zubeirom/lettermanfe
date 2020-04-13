@@ -1,1 +1,31 @@
+<div class="ui huge dividing header">
+  {{#if model.title}}
+    {{model.title}}
+  {{else}} 
+    <i>No Title</i>
+  {{/if}}
+</div>
+<div class="ui form">
+  <div class="field">
+    <label for="">Title of Document</label>
+    {{model.title}}
+  </div>
+  <div class="field">
+    <label for="">Labels:</label>
+    {{#each model.label as |label|}}
+      <a class="ui basic label">{{label}}</a>  
+    {{/each}}
+  </div>
+  <div class="field">
+    <label for="">Original Document Image</label>
+    <a href="https://storage.googleapis.com/bucket_btf6teq/{{model.imageUrl}}" target="_blank" rel="noreferrer">
+      <i class="paperclip icon"></i> Open Image
+    </a>
+  </div> 
+  <div class="field">
+    <label for="">Content of Letter</label>
+    {{model.content}}
+  </div>
+</div>
+
 {{outlet}}

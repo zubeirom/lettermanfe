@@ -15,7 +15,9 @@ Router.map(function() {
       this.route('edit');
     });
   });
-  this.route('labels');
+  this.route('labels', function() {
+    this.route('info');
+  });
   this.route('profile');
 });
 

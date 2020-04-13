@@ -29,3 +29,24 @@
   background-color: #04053a;
   color: white
 }
+
+.label {
+  cursor: pointer!important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+button {
+  font-family: "Poppins", sans-serif !important;
+}
+
+a {
+  font-family: "Poppins", sans-serif !important;
+}
+
+label {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.fa-tag {
+  color: #FC820E
+}

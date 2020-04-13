@@ -12,7 +12,11 @@ export default Controller.extend({
   init() {
     this._super(...arguments);
     this.image = "";
-    this.labels = [{ name: "bitch" }, { name: "fuck" }, { name: "you" }];
+    this.newLabels = [];
+  },
+
+  ifExists(name) {
+    return this.newLabels.includes(name);
   },
 
   sendToServer: task(function* (image) {
@@ -25,9 +29,9 @@ export default Controller.extend({
       const document = this.store.createRecord('letter', {
         title: this.newtitle,
         imageUrl: image.name,
-        label: ["foo", "bar"]
+        label: this.newLabels
       });
-      const newdoc = yield document.save();
+      const newdoc = yield document.save(); 
       this.router.transitionTo('letters.info', newdoc);
       set(this, "loader", false);
     } catch (e) {
@@ -39,6 +43,18 @@ export default Controller.extend({
     .enqueue(),
 
   actions: {
+    addLabel(label) {
+      if(!this.ifExists(label)) {
+        this.newLabels.pushObject(label);
+        this.model.labelNames.removeObject(label);
+      }
+    },
+
+    removeLabel(label) {
+      this.newLabels.removeObject(label);
+      this.model.labelNames.pushObject(label)
+    },
+
     uploadImage(image) {
       try {
         set(this, "load", true);
@@ -50,17 +66,13 @@ export default Controller.extend({
       }
     },
 
-    addLabel(selected) {
-      console.log(selected);
-    },
-
     save() {
       try {
         set(this, "loader", true);
-        if(this.image) {
+        if(this.image && this.newtitle) {
           get(this, 'sendToServer').perform(this.image);
         } else {
-          this.toast.error("Please upload a document", "Error");
+          this.toast.error("Please make sure a document and the title is ready", "Error");
           set(this, "loader", false);
         }
       } catch (error) {
