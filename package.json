@@ -15,7 +15,8 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
-    "test": "ember test"
+    "test": "ember test",
+    "deploy": "rimraf dist && rimraf .firebase && ember build --environment=production && firebase deploy"
   },
   "devDependencies": {
     "@ember/jquery": "^0.6.0",
@@ -67,6 +68,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "rimraf": "^3.0.2",
     "torii": "^0.10.1"
   }
 }
