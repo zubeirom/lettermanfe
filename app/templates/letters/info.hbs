@@ -1,3 +1,4 @@
+{{!-- template-lint-disable no-triple-curlies--}}
 <div class="ui huge dividing header">
   {{#if model.title}}
     {{model.title}}
@@ -8,22 +9,58 @@
 {{#link-to "dashboard" class="ui small secondary circular icon button"}}
   <i class="left arrow icon"></i>
 {{/link-to}} &nbsp; &nbsp;
-<button class="ui small inverted orange button">
-  <i class="edit icon"></i>
-  Edit Document
-</button>
+{{#if editMode}}
+  <button class="ui blue button" {{action (mut editMode) false}}>
+    <i class="eye icon"></i>
+    View
+  </button>
+  <button class="ui green button" {{action "save"}}>
+    <i class="save icon"></i>
+    Save changes
+  </button>
+{{else}}
+  <button class="ui small inverted orange button" {{action (mut editMode) true}}>
+    <i class="edit icon"></i>
+    Edit Document
+  </button>
+{{/if}}
 <br>
 <br>
 <div class="ui form">
   <div class="field">
     <label for="">Title of Document</label>
-    {{model.title}}
+    {{#if editMode}}
+      <div class="ui input">
+        {{input value=model.title}}
+      </div>
+    {{else}}
+      {{model.title}}
+    {{/if}}
   </div>
   <div class="field">
-    <label for="">Labels:</label>
-    {{#each model.label as |label|}}
-      <a class="ui basic label">{{label}}</a>  
-    {{/each}}
+    {{#if editMode}}
+      <label for="" class="ui small dividing header">Add new labels</label>
+      {{#each model.labels as |label|}}
+        <div class="ui basic label" {{action "addLabel" label}} role="button">
+          <i class="plus icon"></i>
+          {{label}}
+        </div>
+      {{/each}}
+      <br>
+      <br>
+      <label class="ui small dividing header">My Labels</label>
+      {{#each model.newLabels as |label|}}
+        <div class="ui orange label" role="button" {{action "removeLabel" label}}>
+          <i class="trash icon"></i>
+          {{label}}
+        </div>
+      {{/each}}
+    {{else}}  
+      <label for="">Labels:</label>
+      {{#each model.label as |label|}}
+        <a class="ui basic label">{{label}}</a>  
+      {{/each}}
+    {{/if}}
   </div>
   <div class="field">
     <label for="">Original Document Image</label>
@@ -33,7 +70,11 @@
   </div> 
   <div class="field">
     <label for="">Content of Letter</label>
-    {{model.content}}
+    {{#if editMode}}
+      {{pell-editor value=model.content onChange=(action (mut model.content)) pellOptions=options}}
+    {{else}}
+      {{{model.content}}}
+    {{/if}}
   </div>
 </div>
 

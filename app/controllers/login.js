@@ -20,7 +20,9 @@ export default Controller.extend({
       try {
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.GoogleAuthProvider();
-        return auth.signInWithPopup(provider).catch(e => {
+        return auth.signInWithPopup(provider).then(() => {
+          document.location.reload();
+        }).catch(e => {
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
@@ -33,7 +35,9 @@ export default Controller.extend({
       try {
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.FacebookAuthProvider();
-        return auth.signInWithPopup(provider).catch(e => {
+        return auth.signInWithPopup(provider).then(() => {
+          document.location.reload();
+        }).catch(e => {
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
@@ -46,7 +50,9 @@ export default Controller.extend({
       try {
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.TwitterAuthProvider();
-        return auth.signInWithPopup(provider).catch(e => {
+        return auth.signInWithPopup(provider).then(() => {
+          document.location.reload();
+        }).catch(e => {
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
@@ -59,7 +65,9 @@ export default Controller.extend({
       try {
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.GithubAuthProvider();
-        return auth.signInWithPopup(provider).catch(e => {
+        return auth.signInWithPopup(provider).then(() => {
+          document.location.reload();
+        }).catch(e => {
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
@@ -72,7 +80,9 @@ export default Controller.extend({
       try {
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.OAuthProvider('microsoft.com');
-        return auth.signInWithPopup(provider).catch(e => {
+        return auth.signInWithPopup(provider).then(() => {
+          document.location.reload();
+        }).catch(e => {
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
