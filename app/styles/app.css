@@ -155,3 +155,11 @@ label {
     opacity: 0; 
   }
 }
+
+#indexheader {
+  font-family: "Kumar One", cursive !important;
+}
+
+#indexsubheader {
+  font-family: "Poppins", sans-serif !important;
+}

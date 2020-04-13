@@ -1,3 +1,192 @@
-{{#link-to "login" class="ui button"}}
-  Login
-{{/link-to}}
+<style type="text/css">
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hidden.menu {
+    display: none;
+  }
+
+  .masthead.segment {
+    min-height: 600px;
+    padding: 1em 0em;
+  }
+
+  .masthead .logo.item img {
+    margin-right: 1em;
+  }
+
+  .masthead .ui.menu .ui.button {
+    margin-left: 0.5em;
+  }
+
+  .masthead h1.ui.header {
+    margin-top: 2em;
+    margin-bottom: 0em;
+    font-size: 4em;
+    font-weight: normal;
+  }
+
+  .masthead h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+  }
+
+  .ui.vertical.stripe {
+    padding: 8em 0em;
+  }
+
+  .ui.vertical.stripe h3 {
+    font-size: 2em;
+  }
+
+  .ui.vertical.stripe .button+h3,
+  .ui.vertical.stripe p+h3 {
+    margin-top: 3em;
+  }
+
+  .ui.vertical.stripe .floated.image {
+    clear: both;
+  }
+
+  .ui.vertical.stripe p {
+    font-size: 1.33em;
+  }
+
+  .ui.vertical.stripe .horizontal.divider {
+    margin: 3em 0em;
+  }
+
+  .quote.stripe.segment {
+    padding: 0em;
+  }
+
+  .quote.stripe.segment .grid .column {
+    padding-top: 5em;
+    padding-bottom: 5em;
+  }
+
+  .footer.segment {
+    padding: 5em 0em;
+  }
+
+  .secondary.pointing.menu .toc.item {
+    display: none;
+  }
+
+  @media only screen and (max-width: 700px) {
+    .ui.fixed.menu {
+      display: none !important;
+    }
+
+    .secondary.pointing.menu .item,
+    .secondary.pointing.menu .menu {
+      display: none;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: block;
+    }
+
+    .masthead.segment {
+      min-height: 350px;
+    }
+
+    .masthead h1.ui.header {
+      font-size: 2em;
+      margin-top: 1.5em;
+    }
+
+    .masthead h2 {
+      margin-top: 0.5em;
+      font-size: 1.5em;
+    }
+  }
+  #headersegment {
+    background: linear-gradient(to bottom, #04053A, #0D0E8B);
+  }
+
+  #mobiewimg {
+    border-radius: 40px;
+  }
+</style>
+
+<body id="root">
+  {{!-- <!--Page Contents--> --}}
+  <div class="pusher">
+    <div class="ui inverted vertical masthead center aligned segment" id="headersegment">
+      <div class="ui text container">
+        <h1 class="ui inverted header" id="indexheader">Letterman</h1>
+        <h2 id="indexsubheader">Manage your Documents easily by turning your images into machine-text. </h2>
+        {{#link-to "login" class="ui huge orange button"}}
+          Get Started <i class="right arrow icon"></i>
+        {{/link-to}}
+      </div>
+    </div>
+    <div class="ui vertical stripe segment">
+      <div class="ui middle aligned stackable grid container">
+        <div class="row">
+          <div class="eight wide column">
+            <h3 class="ui header">How To Digitze Your Documents?</h3>
+            <p>
+              <ol>
+                <li>Enter the title of your Document</li>
+                <li>Upload your document file</li>
+                <li>You can optionally add labels</li>
+                <li>Done!</li>
+              </ol>
+            </p>
+            <h3 class="ui header">
+              Responsive Design and Mobile Friendly
+            </h3>
+            <p>
+              Letterman is a web application that you can turn into a mobile application by simply adding it to your homescreen from your browser
+            </p>
+          </div>
+          <div class="six wide right floated column">
+            <img class="ui bordered rounded image" src="/mobview.PNG" alt="index" id="mobiewimg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui vertical stripe segment">
+      <div class="ui text container">
+        <h3 class="ui header">How Are Documents Being Digitized?</h3>
+        <p>
+          The uploaded image file of your document get's processed through Optical Character Recognition (OCR) and the help of Artificial Intelligence/Computer Vision and will give you the content of that in machine-encoded text. This is contributed by Google's Vision API 
+        </p>
+        <a class="ui large primary button" href="https://sen.wikipedia.org/wiki/Optical_character_recognition" target="_blank" rel="noreferrer">Learn More</a>
+        <h4 class="ui horizontal header divider">
+        </h4>
+        <h3 class="ui header">What Problem Are We Trying To Solve</h3>
+        <p>
+          In the 21st century where almost everything is digital, we still run into alot of paper documents which is often times necessary. But you can avoid searching for these documents by simply digitizing it and have it in your pocket the whole time.
+        </p>
+        {{#link-to "login"}}
+          <a class="ui large orange button">Still Interested? Try it out!</a>
+        {{/link-to}}
+      </div>
+    </div>
+    <div class="ui inverted vertical footer segment">
+      <div class="ui container">
+        <div class="ui stackable inverted divided equal height stackable grid">
+          <div class="three wide column">
+            <h4 class="ui inverted header">About</h4>
+            <div class="ui inverted link list">
+              <a class="item" href="mailto:zubeir.mohamed@outlook.de">Contact</a>
+              <a class="item" href="#root">Privacy Policy</a>
+              <a class="item" href="#root">Terms of Service</a>
+            </div>
+          </div>
+
+          <div class="seven wide column">
+            <h4 class="ui inverted header">Developed By Zubeir Mohamed</h4>
+            <p>
+              Hi, my Name is Zubeir Mohamed, I am a Student from Saarbrücken Germany studying Data Science & AI. <br><a href="https://zubeirtech.dev">Visit my Page</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
