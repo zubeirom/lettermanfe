@@ -19,7 +19,27 @@ export default Controller.extend({
 
     removeLabel(label) {
       this.model.newLabels.removeObject(label);
-      this.model.labels.pushObject(label)
+      if(!this.model.labels.includes(label)) {
+        this.model.labels.pushObject(label) 
+      }
+    },
+
+    async delete() {
+      try {
+        await this.model.destroyRecord();
+        this.toast.success("Document successfully deleted", "Great!");
+        set(this, "editMode", false);
+        set(this, "deleteMode", false);
+        this.transitionToRoute('dashboard');
+      } catch (error) {
+        console.error();
+      }
+    },
+
+    redirect() {
+      set(this, "editMode", false);
+      set(this, "deleteMode", false);
+      this.transitionToRoute("dashboard")
     },
 
     save() {
@@ -28,6 +48,7 @@ export default Controller.extend({
         if(this.model.title) {
           this.model.save();
           set(this, "editMode", false);
+          this.toast.success("Changes are saved", "Great!");
         } else {
           this.toast.error("Title has to be defined", "Error")
         }

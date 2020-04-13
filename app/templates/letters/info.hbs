@@ -9,18 +9,41 @@
 
 Created: {{moment-from-now model.createdAt}}; Last Update: {{moment-from-now model.updatedAt}} <br> <br>
 
-{{#link-to "dashboard" class="ui small secondary circular icon button"}}
+<button class="ui circular secondary icon button" {{action "redirect"}}>
   <i class="left arrow icon"></i>
-{{/link-to}} &nbsp; &nbsp;
+</button>&nbsp; &nbsp;
 {{#if editMode}}
-  <button class="ui blue button" {{action (mut editMode) false}}>
-    <i class="eye icon"></i>
-    View
-  </button>
-  <button class="ui green button" {{action "save"}}>
+  <button class="ui  {{if deleteMode "disabled"}} green button" {{action "save"}}>
     <i class="save icon"></i>
     Save changes
   </button>
+  <br>
+  <br>
+  <button class="ui blue {{if deleteMode "disabled"}} button" {{action (mut editMode) false}}>
+    <i class="eye icon"></i>
+    View
+  </button>
+  {{#if deleteMode}}
+    <div class="ui message">
+      <div class="header">
+        Are you sure you want to delete this document?
+      </div>
+      <br>
+      <button class="ui red inverted button" {{action "delete"}}>
+        <i class="trash icon"></i>
+        Yes, I am sure
+      </button>
+      <button class="ui blue button" {{action (mut deleteMode) false}}>
+        No, cancel
+      </button>
+    </div>
+  {{else}}
+    <button class="ui red button" {{action (mut deleteMode) true}}>
+      <i class="trash icon"></i>
+      Delete Document
+    </button>
+  {{/if}}
+  
 {{else}}
   <button class="ui small inverted orange button" {{action (mut editMode) true}}>
     <i class="edit icon"></i>
