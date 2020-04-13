@@ -1,3 +1,4 @@
+{{!-- template-lint-disable no-triple-curlies--}}
 <div class="row">
   <h1 class="ui huge dividing header">{{model.name}}</h1>
 </div>
@@ -22,7 +23,7 @@
             {{/if}}
           </div>
           <div class="meta">Last Update: {{moment-from-now letter.updatedAt}}</div>
-          <div class="description" id="carddesc">{{letter.content}}</div>
+          <div class="description" id="carddesc">{{{letter.content}}}</div>
         </div>
         <div class="extra content">
           {{#each letter.label as |label|}}
