@@ -6,6 +6,9 @@
     <i>No Title</i>
   {{/if}}
 </div>
+
+Created: {{moment-from-now model.createdAt}}; Last Update: {{moment-from-now model.updatedAt}} <br> <br>
+
 {{#link-to "dashboard" class="ui small secondary circular icon button"}}
   <i class="left arrow icon"></i>
 {{/link-to}} &nbsp; &nbsp;
