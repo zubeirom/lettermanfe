@@ -14,16 +14,16 @@
  * @license
  * Dual licensed under the MIT and GPL licenses.
  */
-;(function()
+(function()
 {
-	// CommonJS
-	typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
+  // CommonJS
+  typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
 
-	function Brush()
-	{
-		// Contributed by David Simmons-Duffin and Marty Kube
+  function Brush()
+  {
+    // Contributed by David Simmons-Duffin and Marty Kube
 	
-		var funcs = 
+    var funcs = 
 			'abs accept alarm atan2 bind binmode chdir chmod chomp chop chown chr ' + 
 			'chroot close closedir connect cos crypt defined delete each endgrent ' + 
 			'endhostent endnetent endprotoent endpwent endservent eof exec exists ' + 
@@ -44,29 +44,29 @@
 			'system syswrite tell telldir time times tr truncate uc ucfirst umask ' + 
 			'undef unlink unpack unshift utime values vec wait waitpid warn write';
     
-		var keywords =  
+    var keywords =  
 			'bless caller continue dbmclose dbmopen die do dump else elsif eval exit ' +
 			'for foreach goto if import last local my next no our package redo ref ' + 
 			'require return sub tie tied unless untie until use wantarray while';
     
-		this.regexList = [
-			{ regex: new RegExp('#[^!].*$', 'gm'),					css: 'comments' },
-			{ regex: new RegExp('^\\s*#!.*$', 'gm'),				css: 'preprocessor' }, // shebang
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,	css: 'string' },
-			{ regex: new RegExp('(\\$|@|%)\\w+', 'g'),				css: 'variable' },
-			{ regex: new RegExp(this.getKeywords(funcs), 'gmi'),	css: 'functions' },
-			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),	css: 'keyword' }
+    this.regexList = [
+      { regex: new RegExp('#[^!].*$', 'gm'),					css: 'comments' },
+      { regex: new RegExp('^\\s*#!.*$', 'gm'),				css: 'preprocessor' }, // shebang
+      { regex: SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },
+      { regex: SyntaxHighlighter.regexLib.singleQuotedString,	css: 'string' },
+      { regex: new RegExp('(\\$|@|%)\\w+', 'g'),				css: 'variable' },
+      { regex: new RegExp(this.getKeywords(funcs), 'gmi'),	css: 'functions' },
+      { regex: new RegExp(this.getKeywords(keywords), 'gm'),	css: 'keyword' }
 		    ];
 
-		this.forHtmlScript(SyntaxHighlighter.regexLib.phpScriptTags);
-	}
+    this.forHtmlScript(SyntaxHighlighter.regexLib.phpScriptTags);
+  }
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
-	Brush.aliases		= ['perl', 'Perl', 'pl'];
+  Brush.prototype	= new SyntaxHighlighter.Highlighter();
+  Brush.aliases		= ['perl', 'Perl', 'pl'];
 
-	SyntaxHighlighter.brushes.Perl = Brush;
+  SyntaxHighlighter.brushes.Perl = Brush;
 
-	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+  // CommonJS
+  typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
 })();

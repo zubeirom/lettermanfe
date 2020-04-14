@@ -1,9 +1,34 @@
 <h1 class="ui dividing header">My Account</h1>
-<br>
-<br>
 <h2 class="ui header header">
   <img src={{session.data.authenticated.user.photoURL}} class="ui circular image" alt="avatar">
   {{session.data.authenticated.user.displayName}}
 </h2>
 
-<button class="ui secondary button" {{action "invalidate"}}>Logout</button>
+{{#if deleteMode}}
+  <div class="ui red segment">
+    By deleting your account, you are deleting every saved Document. Are you sure? <br><br>
+    <button class="ui red inverted button">
+      <i class="trash icon"></i>
+      Yes, Delete My Account
+    </button>
+    <button class="ui primary button" {{action (mut deleteMode) false}}>
+      No, Cancel
+    </button>
+  </div>
+{{else}}
+  <button class="ui secondary button" {{action "invalidate"}}>Logout</button>
+  <button class="ui red button" {{action (mut deleteMode) true}}>
+    <i class="ui trash icon"></i>
+    Delete Account
+  </button>
+{{/if}}
+<br>
+<br>
+<br>
+{{#link-to "privacy-policy"}}
+  Privacy Policy
+{{/link-to}} - 
+{{#link-to "terms-of-service"}}
+  Terms of Service
+{{/link-to}} -
+<a href="maito:zubeir.mohamed@outlook.de">Contact</a>

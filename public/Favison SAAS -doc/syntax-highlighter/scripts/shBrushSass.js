@@ -14,24 +14,24 @@
  * @license
  * Dual licensed under the MIT and GPL licenses.
  */
-;(function()
+(function()
 {
-	// CommonJS
-	typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
+  // CommonJS
+  typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
 
-	function Brush()
-	{
-		function getKeywordsCSS(str)
-		{
-			return '\\b([a-z_]|)' + str.replace(/ /g, '(?=:)\\b|\\b([a-z_\\*]|\\*|)') + '(?=:)\\b';
-		};
+  function Brush()
+  {
+    function getKeywordsCSS(str)
+    {
+      return '\\b([a-z_]|)' + str.replace(/ /g, '(?=:)\\b|\\b([a-z_\\*]|\\*|)') + '(?=:)\\b';
+    }
 	
-		function getValuesCSS(str)
-		{
-			return '\\b' + str.replace(/ /g, '(?!-)(?!:)\\b|\\b()') + '\:\\b';
-		};
+    function getValuesCSS(str)
+    {
+      return '\\b' + str.replace(/ /g, '(?!-)(?!:)\\b|\\b()') + '\:\\b';
+    }
 
-		var keywords =	'ascent azimuth background-attachment background-color background-image background-position ' +
+    var keywords =	'ascent azimuth background-attachment background-color background-image background-position ' +
 						'background-repeat background baseline bbox border-collapse border-color border-spacing border-style border-top ' +
 						'border-right border-bottom border-left border-top-color border-right-color border-bottom-color border-left-color ' +
 						'border-top-style border-right-style border-bottom-style border-left-style border-top-width border-right-width ' +
@@ -46,7 +46,7 @@
 						'table-layout text-align top text-decoration text-indent text-shadow text-transform unicode-bidi unicode-range units-per-em ' +
 						'vertical-align visibility voice-family volume white-space widows width widths word-spacing x-height z-index';
 		
-		var values =	'above absolute all always aqua armenian attr aural auto avoid baseline behind below bidi-override black blink block blue bold bolder '+
+    var values =	'above absolute all always aqua armenian attr aural auto avoid baseline behind below bidi-override black blink block blue bold bolder '+
 						'both bottom braille capitalize caption center center-left center-right circle close-quote code collapse compact condensed '+
 						'continuous counter counters crop cross crosshair cursive dashed decimal decimal-leading-zero digits disc dotted double '+
 						'embed embossed e-resize expanded extra-condensed extra-expanded fantasy far-left far-right fast faster fixed format fuchsia '+
@@ -61,34 +61,34 @@
 						'text-bottom text-top thick thin top transparent tty tv ultra-condensed ultra-expanded underline upper-alpha uppercase upper-latin '+
 						'upper-roman url visible wait white wider w-resize x-fast x-high x-large x-loud x-low x-slow x-small x-soft xx-large xx-small yellow';
 		
-		var fonts =		'[mM]onospace [tT]ahoma [vV]erdana [aA]rial [hH]elvetica [sS]ans-serif [sS]erif [cC]ourier mono sans serif';
+    var fonts =		'[mM]onospace [tT]ahoma [vV]erdana [aA]rial [hH]elvetica [sS]ans-serif [sS]erif [cC]ourier mono sans serif';
 		
-		var statements		= '!important !default';
-		var preprocessor	= '@import @extend @debug @warn @if @for @while @mixin @include';
+    var statements		= '!important !default';
+    var preprocessor	= '@import @extend @debug @warn @if @for @while @mixin @include';
 		
-		var r = SyntaxHighlighter.regexLib;
+    var r = SyntaxHighlighter.regexLib;
 		
-		this.regexList = [
-			{ regex: r.multiLineCComments,								css: 'comments' },		// multiline comments
-			{ regex: r.singleLineCComments,								css: 'comments' },		// singleline comments
-			{ regex: r.doubleQuotedString,								css: 'string' },		// double quoted strings
-			{ regex: r.singleQuotedString,								css: 'string' },		// single quoted strings
-			{ regex: /\#[a-fA-F0-9]{3,6}/g,								css: 'value' },			// html colors
-			{ regex: /\b(-?\d+)(\.\d+)?(px|em|pt|\:|\%|)\b/g,			css: 'value' },			// sizes
-			{ regex: /\$\w+/g,											css: 'variable' },		// variables
-			{ regex: new RegExp(this.getKeywords(statements), 'g'),		css: 'color3' },		// statements
-			{ regex: new RegExp(this.getKeywords(preprocessor), 'g'),	css: 'preprocessor' },	// preprocessor
-			{ regex: new RegExp(getKeywordsCSS(keywords), 'gm'),		css: 'keyword' },		// keywords
-			{ regex: new RegExp(getValuesCSS(values), 'g'),				css: 'value' },			// values
-			{ regex: new RegExp(this.getKeywords(fonts), 'g'),			css: 'color1' }			// fonts
-			];
-	};
+    this.regexList = [
+      { regex: r.multiLineCComments,								css: 'comments' },		// multiline comments
+      { regex: r.singleLineCComments,								css: 'comments' },		// singleline comments
+      { regex: r.doubleQuotedString,								css: 'string' },		// double quoted strings
+      { regex: r.singleQuotedString,								css: 'string' },		// single quoted strings
+      { regex: /\#[a-fA-F0-9]{3,6}/g,								css: 'value' },			// html colors
+      { regex: /\b(-?\d+)(\.\d+)?(px|em|pt|\:|\%|)\b/g,			css: 'value' },			// sizes
+      { regex: /\$\w+/g,											css: 'variable' },		// variables
+      { regex: new RegExp(this.getKeywords(statements), 'g'),		css: 'color3' },		// statements
+      { regex: new RegExp(this.getKeywords(preprocessor), 'g'),	css: 'preprocessor' },	// preprocessor
+      { regex: new RegExp(getKeywordsCSS(keywords), 'gm'),		css: 'keyword' },		// keywords
+      { regex: new RegExp(getValuesCSS(values), 'g'),				css: 'value' },			// values
+      { regex: new RegExp(this.getKeywords(fonts), 'g'),			css: 'color1' }			// fonts
+    ];
+  }
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
-	Brush.aliases	= ['sass', 'scss'];
+  Brush.prototype	= new SyntaxHighlighter.Highlighter();
+  Brush.aliases	= ['sass', 'scss'];
 
-	SyntaxHighlighter.brushes.Sass = Brush;
+  SyntaxHighlighter.brushes.Sass = Brush;
 
-	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+  // CommonJS
+  typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
 })();

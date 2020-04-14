@@ -14,17 +14,17 @@
  * @license
  * Dual licensed under the MIT and GPL licenses.
  */
-;(function()
+(function()
 {
-	// CommonJS
-	typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
+  // CommonJS
+  typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
 
-	function Brush()
-	{
-		// Contributes by B.v.Zanten, Getronics
-		// http://confluence.atlassian.com/display/CONFEXT/New+Code+Macro
+  function Brush()
+  {
+    // Contributes by B.v.Zanten, Getronics
+    // http://confluence.atlassian.com/display/CONFEXT/New+Code+Macro
 
-		var keywords = 'Add-Content Add-History Add-Member Add-PSSnapin Clear(-Content)? Clear-Item ' +
+    var keywords = 'Add-Content Add-History Add-Member Add-PSSnapin Clear(-Content)? Clear-Item ' +
 					'Clear-ItemProperty Clear-Variable Compare-Object ConvertFrom-SecureString Convert-Path ' +
 					'ConvertTo-Html ConvertTo-SecureString Copy(-Item)? Copy-ItemProperty Export-Alias ' +
 					'Export-Clixml Export-Console Export-Csv ForEach(-Object)? Format-Custom Format-List ' +
@@ -45,7 +45,7 @@
 					'Start-Sleep Start-Transcript Stop-Process Stop-Service Stop-Transcript Suspend-Service ' +
 					'Tee-Object Test-Path Trace-Command Update-FormatData Update-TypeData Where(-Object)? ' +
 					'Write-Debug Write-Error Write(-Host)? Write-Output Write-Progress Write-Verbose Write-Warning';
-		var alias = 'ac asnp clc cli clp clv cpi cpp cvpa diff epal epcsv fc fl ' +
+    var alias = 'ac asnp clc cli clp clv cpi cpp cvpa diff epal epcsv fc fl ' +
 					'ft fw gal gc gci gcm gdr ghy gi gl gm gp gps group gsv ' +
 					'gsnp gu gv gwmi iex ihy ii ipal ipcsv mi mp nal ndr ni nv oh rdr ' +
 					'ri rni rnp rp rsnp rv rvpa sal sasv sc select si sl sleep sort sp ' +
@@ -53,22 +53,22 @@
 					'mount mv popd ps pushd pwd r rm rmdir echo cls chdir del dir ' +
 					'erase rd ren type % \\?';
 
-		this.regexList = [
-			{ regex: /#.*$/gm,										css: 'comments' },  // one line comments
-			{ regex: /\$[a-zA-Z0-9]+\b/g,							css: 'value'   },   // variables $Computer1
-			{ regex: /\-[a-zA-Z]+\b/g,								css: 'keyword' },   // Operators    -not  -and  -eq
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },    // strings
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,	css: 'string' },    // strings
-			{ regex: new RegExp(this.getKeywords(keywords), 'gmi'),	css: 'keyword' },
-			{ regex: new RegExp(this.getKeywords(alias), 'gmi'),	css: 'keyword' }
-		];
-	};
+    this.regexList = [
+      { regex: /#.*$/gm,										css: 'comments' },  // one line comments
+      { regex: /\$[a-zA-Z0-9]+\b/g,							css: 'value'   },   // variables $Computer1
+      { regex: /\-[a-zA-Z]+\b/g,								css: 'keyword' },   // Operators    -not  -and  -eq
+      { regex: SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },    // strings
+      { regex: SyntaxHighlighter.regexLib.singleQuotedString,	css: 'string' },    // strings
+      { regex: new RegExp(this.getKeywords(keywords), 'gmi'),	css: 'keyword' },
+      { regex: new RegExp(this.getKeywords(alias), 'gmi'),	css: 'keyword' }
+    ];
+  }
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
-	Brush.aliases	= ['powershell', 'ps'];
+  Brush.prototype	= new SyntaxHighlighter.Highlighter();
+  Brush.aliases	= ['powershell', 'ps'];
 
-	SyntaxHighlighter.brushes.PowerShell = Brush;
+  SyntaxHighlighter.brushes.PowerShell = Brush;
 
-	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+  // CommonJS
+  typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
 })();

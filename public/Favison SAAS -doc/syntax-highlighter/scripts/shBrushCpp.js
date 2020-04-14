@@ -14,16 +14,16 @@
  * @license
  * Dual licensed under the MIT and GPL licenses.
  */
-;(function()
+(function()
 {
-	// CommonJS
-	typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
+  // CommonJS
+  typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
 
-	function Brush()
-	{
-		// Copyright 2006 Shin, YoungJin
+  function Brush()
+  {
+    // Copyright 2006 Shin, YoungJin
 	
-		var datatypes =	'ATOM BOOL BOOLEAN BYTE CHAR COLORREF DWORD DWORDLONG DWORD_PTR ' +
+    var datatypes =	'ATOM BOOL BOOLEAN BYTE CHAR COLORREF DWORD DWORDLONG DWORD_PTR ' +
 						'DWORD32 DWORD64 FLOAT HACCEL HALF_PTR HANDLE HBITMAP HBRUSH ' +
 						'HCOLORSPACE HCONV HCONVLIST HCURSOR HDC HDDEDATA HDESK HDROP HDWP ' +
 						'HENHMETAFILE HFILE HFONT HGDIOBJ HGLOBAL HHOOK HICON HINSTANCE HKEY ' +
@@ -48,7 +48,7 @@
 						'time_t __time64_t _timeb __timeb64 tm uintptr_t _utimbuf ' +
 						'va_list wchar_t wctrans_t wctype_t wint_t signed';
 
-		var keywords =	'break case catch class const __finally __exception __try ' +
+    var keywords =	'break case catch class const __finally __exception __try ' +
 						'const_cast continue private public protected __declspec ' +
 						'default delete deprecated dllexport dllimport do dynamic_cast ' +
 						'else enum explicit extern if for friend goto inline ' +
@@ -58,7 +58,7 @@
 						'thread throw true false try typedef typeid typename union ' +
 						'using uuid virtual void volatile whcar_t while';
 					
-		var functions =	'assert isalnum isalpha iscntrl isdigit isgraph islower isprint' +
+    var functions =	'assert isalnum isalpha iscntrl isdigit isgraph islower isprint' +
 						'ispunct isspace isupper isxdigit tolower toupper errno localeconv ' +
 						'setlocale acos asin atan atan2 ceil cos cosh exp fabs floor fmod ' +
 						'frexp ldexp log log10 modf pow sin sinh sqrt tan tanh jmp_buf ' +
@@ -75,23 +75,23 @@
 						'strncpy strpbrk strrchr strspn strstr strtok strxfrm asctime ' +
 						'clock ctime difftime gmtime localtime mktime strftime time';
 
-		this.regexList = [
-			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },			// one line comments
-			{ regex: SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },			// multiline comments
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },			// strings
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },			// strings
-			{ regex: /^ *#.*/gm,										css: 'preprocessor' },
-			{ regex: new RegExp(this.getKeywords(datatypes), 'gm'),		css: 'color1 bold' },
-			{ regex: new RegExp(this.getKeywords(functions), 'gm'),		css: 'functions bold' },
-			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword bold' }
-			];
-	};
+    this.regexList = [
+      { regex: SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },			// one line comments
+      { regex: SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },			// multiline comments
+      { regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },			// strings
+      { regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },			// strings
+      { regex: /^ *#.*/gm,										css: 'preprocessor' },
+      { regex: new RegExp(this.getKeywords(datatypes), 'gm'),		css: 'color1 bold' },
+      { regex: new RegExp(this.getKeywords(functions), 'gm'),		css: 'functions bold' },
+      { regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword bold' }
+    ];
+  }
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
-	Brush.aliases	= ['cpp', 'c'];
+  Brush.prototype	= new SyntaxHighlighter.Highlighter();
+  Brush.aliases	= ['cpp', 'c'];
 
-	SyntaxHighlighter.brushes.Cpp = Brush;
+  SyntaxHighlighter.brushes.Cpp = Brush;
 
-	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+  // CommonJS
+  typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
 })();

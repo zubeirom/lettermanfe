@@ -174,8 +174,12 @@
             <h4 class="ui inverted header">About</h4>
             <div class="ui inverted link list">
               <a class="item" href="mailto:zubeir.mohamed@outlook.de">Contact</a>
-              <a class="item" href="#root">Privacy Policy</a>
-              <a class="item" href="#root">Terms of Service</a>
+              {{#link-to "privacy-policy" class="item"}}
+                Privacy Policy
+              {{/link-to}}
+              {{#link-to "terms-of-service" class="item"}}
+                Terms of Service
+              {{/link-to}}
             </div>
           </div>
 

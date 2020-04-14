@@ -20,6 +20,8 @@ Router.map(function() {
   });
   this.route('profile');
   this.route('manage-labels');
+  this.route('privacy-policy');
+  this.route('terms-of-service');
 });
 
 export default Router;

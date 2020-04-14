@@ -14,14 +14,14 @@
  * @license
  * Dual licensed under the MIT and GPL licenses.
  */
-;(function()
+(function()
 {
-	// CommonJS
-	typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
+  // CommonJS
+  typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
 
-	function Brush()
-	{
-		var keywords =	'AddHandler AddressOf AndAlso Alias And Ansi As Assembly Auto ' +
+  function Brush()
+  {
+    var keywords =	'AddHandler AddressOf AndAlso Alias And Ansi As Assembly Auto ' +
 						'Boolean ByRef Byte ByVal Call Case Catch CBool CByte CChar CDate ' +
 						'CDec CDbl Char CInt Class CLng CObj Const CShort CSng CStr CType ' +
 						'Date Decimal Declare Default Delegate Dim DirectCast Do Double Each ' +
@@ -36,21 +36,21 @@
 						'Structure Sub SyncLock Then Throw To True Try TypeOf Unicode Until ' +
 						'Variant When While With WithEvents WriteOnly Xor';
 
-		this.regexList = [
-			{ regex: /'.*$/gm,										css: 'comments' },			// one line comments
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },			// strings
-			{ regex: /^\s*#.*$/gm,									css: 'preprocessor' },		// preprocessor tags like #region and #endregion
-			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),	css: 'keyword' }			// vb keyword
-			];
+    this.regexList = [
+      { regex: /'.*$/gm,										css: 'comments' },			// one line comments
+      { regex: SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },			// strings
+      { regex: /^\s*#.*$/gm,									css: 'preprocessor' },		// preprocessor tags like #region and #endregion
+      { regex: new RegExp(this.getKeywords(keywords), 'gm'),	css: 'keyword' }			// vb keyword
+    ];
 
-		this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
-	};
+    this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
+  }
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
-	Brush.aliases	= ['vb', 'vbnet'];
+  Brush.prototype	= new SyntaxHighlighter.Highlighter();
+  Brush.aliases	= ['vb', 'vbnet'];
 
-	SyntaxHighlighter.brushes.Vb = Brush;
+  SyntaxHighlighter.brushes.Vb = Brush;
 
-	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+  // CommonJS
+  typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
 })();

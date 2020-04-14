@@ -9,9 +9,9 @@
 
 Created: {{moment-from-now model.createdAt}}; Last Update: {{moment-from-now model.updatedAt}} <br> <br>
 
-<button class="ui circular secondary icon button" {{action "redirect"}}>
+<a class="ui circular secondary icon button" href="javascript:history.back()">
   <i class="left arrow icon"></i>
-</button>&nbsp; &nbsp;
+</a>&nbsp; &nbsp;
 {{#if editMode}}
   <button class="ui  {{if deleteMode "disabled"}} green button" {{action "save"}}>
     <i class="save icon"></i>

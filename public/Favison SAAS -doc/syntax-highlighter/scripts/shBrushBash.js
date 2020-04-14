@@ -14,15 +14,15 @@
  * @license
  * Dual licensed under the MIT and GPL licenses.
  */
-;(function()
+(function()
 {
-	// CommonJS
-	typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
+  // CommonJS
+  typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
 
-	function Brush()
-	{
-		var keywords =	'if fi then elif else for do done until while break continue case function return in eq ne ge le';
-		var commands =  'alias apropos awk basename bash bc bg builtin bzip2 cal cat cd cfdisk chgrp chmod chown chroot' +
+  function Brush()
+  {
+    var keywords =	'if fi then elif else for do done until while break continue case function return in eq ne ge le';
+    var commands =  'alias apropos awk basename bash bc bg builtin bzip2 cal cat cd cfdisk chgrp chmod chown chroot' +
 						'cksum clear cmp comm command cp cron crontab csplit cut date dc dd ddrescue declare df ' +
 						'diff diff3 dig dir dircolors dirname dirs du echo egrep eject enable env ethtool eval ' +
 						'exec exit expand export expr false fdformat fdisk fg fgrep file find fmt fold format ' +
@@ -38,22 +38,22 @@
 						'vi watch wc whereis which who whoami Wget xargs yes'
 						;
 
-		this.regexList = [
-			{ regex: /^#!.*$/gm,											css: 'preprocessor bold' },
-			{ regex: /\/[\w-\/]+/gm,										css: 'plain' },
-			{ regex: SyntaxHighlighter.regexLib.singleLinePerlComments,		css: 'comments' },		// one line comments
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,			css: 'string' },		// double quoted strings
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,			css: 'string' },		// single quoted strings
-			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),			css: 'keyword' },		// keywords
-			{ regex: new RegExp(this.getKeywords(commands), 'gm'),			css: 'functions' }		// commands
-			];
-	}
+    this.regexList = [
+      { regex: /^#!.*$/gm,											css: 'preprocessor bold' },
+      { regex: /\/[\w-\/]+/gm,										css: 'plain' },
+      { regex: SyntaxHighlighter.regexLib.singleLinePerlComments,		css: 'comments' },		// one line comments
+      { regex: SyntaxHighlighter.regexLib.doubleQuotedString,			css: 'string' },		// double quoted strings
+      { regex: SyntaxHighlighter.regexLib.singleQuotedString,			css: 'string' },		// single quoted strings
+      { regex: new RegExp(this.getKeywords(keywords), 'gm'),			css: 'keyword' },		// keywords
+      { regex: new RegExp(this.getKeywords(commands), 'gm'),			css: 'functions' }		// commands
+    ];
+  }
 
-	Brush.prototype	= new SyntaxHighlighter.Highlighter();
-	Brush.aliases	= ['bash', 'shell'];
+  Brush.prototype	= new SyntaxHighlighter.Highlighter();
+  Brush.aliases	= ['bash', 'shell'];
 
-	SyntaxHighlighter.brushes.Bash = Brush;
+  SyntaxHighlighter.brushes.Bash = Brush;
 
-	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+  // CommonJS
+  typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
 })();
