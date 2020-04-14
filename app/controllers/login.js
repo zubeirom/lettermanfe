@@ -23,6 +23,7 @@ export default Controller.extend({
         return auth.signInWithPopup(provider).then(() => {
           document.location.reload();
         }).catch(e => {
+          console.error(e);
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
@@ -38,6 +39,7 @@ export default Controller.extend({
         return auth.signInWithPopup(provider).then(() => {
           document.location.reload();
         }).catch(e => {
+          console.error(e);
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
@@ -53,6 +55,7 @@ export default Controller.extend({
         return auth.signInWithPopup(provider).then(() => {
           document.location.reload();
         }).catch(e => {
+          console.error(e);
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
@@ -68,6 +71,7 @@ export default Controller.extend({
         return auth.signInWithPopup(provider).then(() => {
           document.location.reload();
         }).catch(e => {
+          console.error(e);
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
@@ -83,6 +87,7 @@ export default Controller.extend({
         return auth.signInWithPopup(provider).then(() => {
           document.location.reload();
         }).catch(e => {
+          console.error(e);
           this.checkIfAlreadyUsedEmail(e.code)
         });
       } catch (error) {
