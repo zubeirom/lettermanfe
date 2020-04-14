@@ -53,6 +53,7 @@ export default Controller.extend({
           this.toast.error("Title has to be defined", "Error")
         }
       } catch (error) {
+        this.toast.error("Something went wrong", "Error");
         console.error(error)
       }
     }

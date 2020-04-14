@@ -38,6 +38,7 @@ export default Controller.extend({
       this.router.replaceWith('letters.info', newdoc);
       set(this, "loader", false);
     } catch (e) {
+      this.toast.error("Something went wrong", "Error");
       set(this, "loader", false);
       console.error(e);
     }
