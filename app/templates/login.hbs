@@ -16,7 +16,11 @@
     color: white
   }
 
-  #link {
+  #link1 {
+    font-size: 12px;
+  }
+
+  #link2 {
     font-size: 12px;
   }
 
@@ -73,10 +77,10 @@
       <br>
       <br>
       <a href="/" id="link">Go back to Home</a> - 
-      {{#link-to "privacy-policy" id="link"}}
+      {{#link-to "privacy-policy" id="link1"}}
         Privacy Policy 
       {{/link-to}} - 
-      {{#link-to "terms-of-service" id="link"}}
+      {{#link-to "terms-of-service" id="link2"}}
         Terms of Service
       {{/link-to}}
     </div>

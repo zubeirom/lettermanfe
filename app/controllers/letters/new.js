@@ -35,7 +35,7 @@ export default Controller.extend({
       set(this, "image", "");
       set(this, "newtitle", "");
       set(this, "newLabels", []);
-      this.router.replaceWith('letters.info', newdoc);
+      window.location.href = `../letters/${newdoc.id}`;
       set(this, "loader", false);
     } catch (e) {
       this.toast.error("Something went wrong", "Error");
