@@ -1,24 +1,65 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Letterman - Digital Letter Manager</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Letterman - Digital Document Manager" />
+    <meta
+      name="description"
+      content="Letterman helps you turn your physical documents into regular text for your to read and manage and all through your phone. Take a picture and letterman will process it's content through OCR into machine-text. "
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://letterman.zubeirtech.dev/" />
+    <meta property="og:title" content="Letterman - Digital Document Manager" />
+    <meta
+      property="og:description"
+      content="Letterman helps you turn your physical documents into regular text for your to read and manage and all through your phone. Take a picture and letterman will process it's content through OCR into machine-text. "
+    />
+    <meta property="og:image" content="/letterman_long.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://letterman.zubeirtech.dev/" />
+    <meta
+      property="twitter:title"
+      content="Letterman - Digital Document Manager"
+    />
+    <meta
+      property="twitter:description"
+      content="Letterman helps you turn your physical documents into regular text for your to read and manage and all through your phone. Take a picture and letterman will process it's content through OCR into machine-text. "
+    />
+    <meta property="twitter:image" content="/letterman_long.png" />
 
     {{content-for "head"}}
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="{{rootURL}}manifest.webmanifest">
+    <meta name="msapplication-config" content="{{rootURL}}browserconfig.xml">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/lettermanfe.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css" />
+    <link
+      integrity=""
+      rel="stylesheet"
+      href="{{rootURL}}assets/lettermanfe.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+      crossorigin="anonymous"
+    />
 
     {{content-for "head-footer"}}
   </head>
@@ -31,8 +72,11 @@
           <div class="sk-cube4 sk-cube"></div>
           <div class="sk-cube3 sk-cube"></div>
         </div>
-        <h1 class="ui white header" id="load-header" style="color: white">Letterman
-          <div class="sub header" style="color: white" id="loadsubheader">Digitize your Documents</div>
+        <h1 class="ui white header" id="load-header" style="color: white;">
+          Letterman
+          <div class="sub header" style="color: white;" id="loadsubheader">
+            Digitize your Documents
+          </div>
         </h1>
       </div>
     </div>
