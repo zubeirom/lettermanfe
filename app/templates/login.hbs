@@ -1,6 +1,6 @@
 <style>
   body {
-    background: linear-gradient(to right, #4286f4, #373B44)!important;
+    background: linear-gradient(to right, #4286f4, #373B44) !important;
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 
@@ -54,7 +54,7 @@
         </button>
         <br>
 
-        <button class="ui circular  twitter button" {{action "authTwitter"}}  id="sb">
+        <button class="ui circular  twitter button" {{action "authTwitter"}} id="sb">
           <i class="fab fa-twitter"></i>
           Sign In Via Twitter
         </button>
@@ -72,7 +72,13 @@
       <br>
       <br>
       <br>
-      <a href="/" id="link">Go back to Home</a> - <a href="" id="link">Privacy Policy</a> - <a href="" id="link">Terms of Service</a>
+      <a href="/" id="link">Go back to Home</a> - 
+      {{#link-to "privacy-policy" id="link"}}
+        Privacy Policy 
+      {{/link-to}} - 
+      {{#link-to "terms-of-service" id="link"}}
+        Terms of Service
+      {{/link-to}}
     </div>
   </div>
 </div>
