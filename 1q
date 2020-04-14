@@ -1,0 +1,48 @@
+Fix ui 
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is up to date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   app/index.html
+#
+# ------------------------ >8 ------------------------
+# Do not modify or remove the line above.
+# Everything below it will be ignored.
+diff --git a/app/index.html b/app/index.html
+index 44bb76a..3fd30ae 100644
+--- a/app/index.html
++++ b/app/index.html
+@@ -3,7 +3,7 @@
+   <head>
+     <meta charset="utf-8" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+-    <title>Letterman - Digital Letter Manager</title>
++    <title>Letterman - Digital Document Manager</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
+     
+     <!-- Primary Meta Tags -->
+@@ -21,10 +21,10 @@
+       property="og:description"
+       content="Letterman helps you turn your physical documents into regular text for your to read and manage and all through your phone. Take a picture and letterman will process it's content through OCR into machine-text. "
+     />
+-    <meta property="og:image" content="/letterman_long.png" />
++    <meta property="og:image" content="https://imgur.com/elevMIT.png" />
+ 
+     <!-- Twitter -->
+-    <meta property="twitter:card" content="letterman_long.png" />
++    <meta property="twitter:card" content="https://imgur.com/elevMIT.png" />
+     <meta property="twitter:url" content="https://letterman.zubeirtech.dev/" />
+     <meta
+       property="twitter:title"
+@@ -34,7 +34,7 @@
+       property="twitter:description"
+       content="Letterman helps you turn your physical documents into regular text for your to read and manage and all through your phone. Take a picture and letterman will process it's content through OCR into machine-text. "
+     />
+-    <meta property="twitter:image" content="/letterman_long.png" />
++    <meta property="twitter:image" content="https://imgur.com/elevMIT.png" />
+ 
+     {{content-for "head"}}
+     <link rel="manifest" href="{{rootURL}}manifest.webmanifest">
