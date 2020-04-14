@@ -26,8 +26,6 @@ export default Controller.extend({
         this.get("firebaseApp").auth().then(({currentUser}) => {
           const {providerId} = currentUser.providerData[0];
           const provider = new firebase.auth.OAuthProvider(providerId);
-          console.log(currentUser)
-          console.log(this.session);
           currentUser.reauthenticateWithPopup(provider).then(() => {
             currentUser.delete().then(() => {
               document.location.reload();
