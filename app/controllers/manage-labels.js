@@ -6,11 +6,13 @@ export default Controller.extend({
   actions: {
     async createLabel() {
       try {
-        const newLabel = await this.store.createRecord('label', {
-          name: this.newLabel
-        });
-        await newLabel.save();
-        set(this, "newLabel", "");
+        if(this.newLabel) {
+          const newLabel = await this.store.createRecord('label', {
+            name: this.newLabel
+          });
+          await newLabel.save();
+          set(this, "newLabel", "");
+        }
       } catch (error) {
         console.error(error);
       }

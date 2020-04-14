@@ -5,16 +5,28 @@
 </h2>
 
 {{#if deleteMode}}
-  <div class="ui red segment">
-    By deleting your account, you are deleting every saved Document. Are you sure? <br><br>
-    <button class="ui red inverted button">
-      <i class="trash icon"></i>
-      Yes, Delete My Account
-    </button>
-    <button class="ui primary button" {{action (mut deleteMode) false}}>
-      No, Cancel
-    </button>
-  </div>
+  {{#if activeDelete}}
+    <div class="ui icon message">
+      <i class="notched circle loading icon"></i>
+      <div class="content">
+        <div class="header">
+          Account is being deleted
+        </div>
+        <p>You will have to reauthenticate for secure delete of your account</p>
+      </div>
+    </div>
+  {{else}}
+    <div class="ui red segment">
+      By deleting your account, you are deleting every saved Document. Are you sure? <br><br>
+      <button class="ui red inverted button" {{action "deleteAccount"}}>
+        <i class="trash icon"></i>
+        Yes, Delete My Account
+      </button>
+      <button class="ui primary button" {{action (mut deleteMode) false}}>
+        No, Cancel
+      </button>
+    </div>
+  {{/if}}
 {{else}}
   <button class="ui secondary button" {{action "invalidate"}}>Logout</button>
   <button class="ui red button" {{action (mut deleteMode) true}}>
@@ -22,6 +34,7 @@
     Delete Account
   </button>
 {{/if}}
+
 <br>
 <br>
 <br>

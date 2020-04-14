@@ -31,8 +31,11 @@ export default Controller.extend({
         imageUrl: image.name,
         label: this.newLabels
       });
-      const newdoc = yield document.save(); 
-      this.router.transitionTo('letters.info', newdoc);
+      const newdoc = yield document.save();
+      set(this, "image", "");
+      set(this, "newtitle", "");
+      set(this, "newLabels", []);
+      this.router.replaceWith('letters.info', newdoc);
       set(this, "loader", false);
     } catch (e) {
       set(this, "loader", false);
@@ -52,7 +55,9 @@ export default Controller.extend({
 
     removeLabel(label) {
       this.newLabels.removeObject(label);
-      this.model.labelNames.pushObject(label)
+      if(!this.model.labelNames.includes(label)){
+        this.model.labelNames.pushObject(label)
+      }
     },
 
     uploadImage(image) {
