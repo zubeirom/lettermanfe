@@ -46,33 +46,45 @@
     <div class="ui center aligned raised segment">
       <h3 class="ui small center aligned header">Quick and convenient access without having to register</h3>
       <br>
-      <div class="ui vertical buttons">
-        <button class="ui circular {{if loading "disabled"}} google plus button" {{action "authGoogle"}} id="sb">
-          <i class="fab fa-google"></i>
-          Sign In Via Google
-        </button>
-        <br>
-        <button class="ui circular {{if loading "disabled"}}  facebook button" {{action "authFacebook"}} id="sb">
-          <i class="fab fa-facebook"></i>
-          Sign In Via Facebook
-        </button>
-        <br>
-
-        <button class="ui circular {{if loading "disabled"}} twitter button" {{action "authTwitter"}} id="sb">
-          <i class="fab fa-twitter"></i>
-          Sign In Via Twitter
-        </button>
-        <br>
-        <button class="ui circular {{if loading "disabled"}} secondary button" {{action "authGithub"}} id="sb">
-          <i class="fab fa-github"></i>
-          Sign In Via GitHub
-        </button>
-        <br>
-        <button class="ui circular {{if loading "disabled"}} secondary basic button" {{action "authMicrosoft"}} id="sb">
-          <i class="fab fa-microsoft"></i>
-          Sign In Via Microsoft
-        </button>
-      </div>
+      {{#if loading}}
+        <div class="ui icon message">
+          <i class="notched circle loading icon"></i>
+          <div class="content">
+            <div class="header">
+              Just one second
+            </div>
+            <p>We are signing you into letterman.</p>
+          </div>
+        </div>
+      {{else}}
+        <div class="ui vertical buttons">
+          <button class="ui circular {{if loading "disabled"}} google plus button" {{action "authGoogle"}} id="sb">
+            <i class="fab fa-google"></i>
+            Sign In Via Google
+          </button>
+          <br>
+          <button class="ui circular {{if loading "disabled"}}  facebook button" {{action "authFacebook"}} id="sb">
+            <i class="fab fa-facebook"></i>
+            Sign In Via Facebook
+          </button>
+          <br>
+  
+          <button class="ui circular {{if loading "disabled"}} twitter button" {{action "authTwitter"}} id="sb">
+            <i class="fab fa-twitter"></i>
+            Sign In Via Twitter
+          </button>
+          <br>
+          <button class="ui circular {{if loading "disabled"}} secondary button" {{action "authGithub"}} id="sb">
+            <i class="fab fa-github"></i>
+            Sign In Via GitHub
+          </button>
+          <br>
+          <button class="ui circular {{if loading "disabled"}} secondary basic button" {{action "authMicrosoft"}} id="sb">
+            <i class="fab fa-microsoft"></i>
+            Sign In Via Microsoft
+          </button>
+        </div>
+      {{/if}}
       <br>
       <br>
       <br>
