@@ -87,7 +87,7 @@ Created: {{moment-from-now model.createdAt}}; Last Update: {{moment-from-now mod
   </div>
   <div class="field">
     <label for="">Original Document Image</label>
-    <a href="https://api-letterman.now.sh/api/stream?fileName={{model.imageUrl}}" target="_blank" rel="noreferrer">
+    <a href="https://api-letterman.herokuapp.com/api/stream?fileName={{model.imageUrl}}&token={{session.data.authenticated.user.xa}}" target="_blank" rel="noreferrer">
       <i class="paperclip icon"></i> Open Image
     </a>
   </div> 
