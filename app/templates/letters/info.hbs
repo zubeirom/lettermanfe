@@ -92,7 +92,7 @@ Created: {{moment-from-now model.createdAt}}; Last Update: {{moment-from-now mod
     </a>
   </div> 
   <div class="field">
-    <label for="">Content of Letter</label>
+    <label for="">Content of Document</label>
     {{#if editMode}}
       {{pell-editor value=model.content onChange=(action (mut model.content)) pellOptions=options}}
     {{else}}

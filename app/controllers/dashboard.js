@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { set } from '@ember/object';
+import { random } from 'ember-math-helpers/helpers/random';
 
 export default Controller.extend({
 

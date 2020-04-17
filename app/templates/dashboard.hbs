@@ -2,15 +2,19 @@
 <div class="row">
   <h1 class="ui huge dividing header">My Dashboard</h1>
 </div>
-<div class="ui info icon message">
-  <i class="info icon"></i>
-  <div class="content">
-    <div class="header">
-      Small Info
+{{#if hideInfo}}
+{{else}}
+  <div class="ui info icon message">
+    <i class="info icon"></i>
+    <i class="close icon" role="button" {{action (mut hideInfo) true}}></i>
+    <div class="content">
+      <div class="header">
+        Small Info
+      </div>
+      <p>Your data is being securely encrypted in the database, opening your document will give you the content</p>
     </div>
-    <p>Your data is being securely encrypted in the database, opening your document will give you the content</p>
   </div>
-</div>
+{{/if}}
 <div class="center aligned row">
   <div class="ui left icon input">
     <i class="search icon"></i>
@@ -31,7 +35,7 @@
             {{/if}}
           </div>
           <div class="meta">Last Update: {{moment-from-now letter.updatedAt}}</div>
-          <div class="description" id="carddesc">{{{letter.content}}}</div>
+          <div class="description" id="carddesc">{{random 10000000 999999999}}{{random 10000000 999999999}}{{random 10000000 999999999}}{{random 10000000 999999999}}{{random 10000000 999999999}}{{random 10000000 999999999}}{{random 10000000 999999999}}{{random 10000000 999999999}}{{random 10000000 999999999}}{{random 10000000 999999999}}{{random 10000000 999999999}}</div>
         </div>
         <div class="extra content">
           {{#each letter.label as |label|}}
