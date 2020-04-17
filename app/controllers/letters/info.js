@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   toast: service('toast'),
+  session: service(),
 
   ifExists(name) {
     return this.model.newLabels.includes(name);
