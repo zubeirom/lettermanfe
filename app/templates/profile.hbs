@@ -1,9 +1,21 @@
 <h1 class="ui dividing header">My Account</h1>
-<h2 class="ui header header">
-  <img src={{session.data.authenticated.user.photoURL}} class="ui circular image" alt="avatar">
-  {{session.data.authenticated.user.displayName}}
+<h2 class="ui header">
+  {{#if session.data.authenticated.user.photoURL}}
+    <img src={{session.data.authenticated.user.photoURL}} class="ui circular image" alt="avatar">
+  {{else}}
+    <img src="profile.png" alt="avatar" class="ui circular image">
+  {{/if}}
+  <div class="content">
+    {{session.data.authenticated.user.displayName}}
+    <div class="sub header">
+      Logged in with: {{session.data.authenticated.user.providerData.[0].providerId}}
+    </div>
+  </div>
 </h2>
-
+<strong>Last sign-in: </strong> {{session.data.authenticated.user.metadata.lastSignInTime}} <br> 
+<strong>Account creation date: </strong> {{session.data.authenticated.user.metadata.creationTime}}
+<br>
+<br>
 {{#if deleteMode}}
   {{#if activeDelete}}
     <div class="ui icon message">

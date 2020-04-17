@@ -83,6 +83,14 @@
   #label {
     color: #FC820E;
   }
+
+  #bottommenu {
+    background: linear-gradient(to bottom, #04053A, #0D0E8B);
+  }
+
+  #mobtopmenu {
+    background: linear-gradient(to bottom, #04053A, #0D0E8B);
+  }
    
 </style>
 <script>
@@ -110,7 +118,11 @@
           Manage Labels
         {{/link-to}}
         {{#link-to "profile" class="item"}}
-          <img class="ui avatar image" src={{session.data.authenticated.user.photoURL}} alt="avatar"> &nbsp;
+          {{#if session.data.authenticated.user.photoURL}}
+            <img src={{session.data.authenticated.user.photoURL}} class="ui avatar image" alt="avatar">
+          {{else}}
+            <img src="profile.png" alt="avatar" class="ui avatar image">
+          {{/if}} &nbsp;
           {{session.data.authenticated.user.displayName}}
         {{/link-to}}
         
@@ -119,7 +131,7 @@
   </div>
   {{!-- MOBILE START --}}
   <div class="ui tablet mobile only padded grid">
-    <div class="ui top fixed borderless fluid inverted menu" id="menu">
+    <div class="ui top fixed borderless fluid inverted menu" id="mobtopmenu">
       <div class="item">
         <button class="ui icon toggle basic inverted button" onclick="toggleSidebar()">
           <i class="content icon"></i>
@@ -131,12 +143,8 @@
         </a>
       </div>
       <div class="ui left demo vertical inverted sidebar menu" id="mobmenu">
-        {{#link-to "profile" class="item"}}
-          <img src={{session.data.authenticated.user.photoURL}} alt="avatar" class="ui avatar image"> &nbsp;
-          {{session.data.authenticated.user.displayName}}
-        {{/link-to}}
         <a class="item">My Labels:</a>
-        <div style="height: 400px">
+        <div style="height: 600px">
           {{#ember-scrollable autoHide=false}}
             {{#each model as |label|}}
               {{#link-to "labels.info" label.id class="item"}}
@@ -146,20 +154,30 @@
             {{/each}}
           {{/ember-scrollable}}
         </div>
-        {{#link-to "letters.new" class="item"}}
-          <i class="fas fa-plus"></i> &nbsp;&nbsp;
-          Create Document
-        {{/link-to}}
-        {{#link-to "dashboard" class="item" onclick="toggleSidebar()"}}
-          <i class="fas fa-clipboard"></i> &nbsp; &nbsp;
-          Dashboard
-        {{/link-to}}
-        {{#link-to "manage-labels" class="item"}}
-          <i class="fas fa-cog">
-          </i> &nbsp;&nbsp;
-          Manage Labels
-        {{/link-to}}
       </div>
+    </div>
+    <div class="ui bottom fixed borderless fluid inverted labeled four item icon mini menu" id="bottommenu">
+      {{#link-to "dashboard" class="item"}}
+        <i class="clipboard icon"></i>
+        Dashboard
+      {{/link-to}}
+      {{#link-to "manage-labels" class="item"}}
+        <i class="cog icon"></i>
+        Labels
+      {{/link-to}}
+      {{#link-to "letters.new" class="item"}}
+        <i class="plus icon"></i>
+        New
+      {{/link-to}}
+      {{#link-to "profile" class="item"}}
+        {{#if session.data.authenticated.user.photoURL}}
+          <img src={{session.data.authenticated.user.photoURL}} class="ui avatar image" alt="avatar">
+        {{else}}
+          <img src="profile.png" alt="avatar" class="ui avatar image">
+        {{/if}}
+        <br>
+        Profile
+      {{/link-to}}
     </div>
   </div>
   {{!-- MOBILE END --}}
@@ -180,7 +198,9 @@
       </div>
     </div>
     <div class="sixteen wide mobile sixteen wide tablet thirteen wide computer right floated column" id="content">
-      <br>
+      <div class="ui computer only grid">
+        <br>
+      </div>
       {{outlet}}
     </div>
   </div>
