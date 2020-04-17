@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend(AuthenticatedRouteMixin, {
   session: service(),
+  ajax: service(),
 
   async afterModel(model) {
     set(model, "newLabels", model.label);
@@ -13,5 +14,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
     labels.forEach(label => {
       model.labels.pushObject(label.name);
     });
+    await this.ajax.request('https://api-letterman.herokuapp.com/api/ping')
   }
 });
