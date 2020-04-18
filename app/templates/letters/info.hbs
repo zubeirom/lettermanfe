@@ -1,9 +1,3 @@
-<style>
-  a {
-    cursor: pointer
-  }
-</style>
-
 {{!-- template-lint-disable no-triple-curlies--}}
 <div class="ui huge dividing header">
   {{#if model.title}}
@@ -93,13 +87,9 @@ Created: {{moment-from-now model.createdAt}}; Last Update: {{moment-from-now mod
   </div>
   <div class="field">
     <label for="">Original Document Image</label>
-    {{#if loader}}
-      <div class="ui active inline text loader">Loading Image</div>
-    {{else}}
-      <a role="button" {{action "openImage"}}>
-        <i class="paperclip icon"></i> Open Image
-      </a>
-    {{/if}}
+    <a href="https://letterman-api.azurewebsites.net/api/stream?fileName={{model.imageUrl}}&token={{session.data.authenticated.user.xa}}">
+      <i class="paperclip icon"></i> Open Image
+    </a>
   </div> 
   <div class="field">
     <label for="">Content of Document</label>
