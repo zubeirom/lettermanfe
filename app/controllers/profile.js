@@ -20,7 +20,7 @@ export default Controller.extend({
         await fetch(`${ENV.host}/api/accounts/delete`, {
           method: 'GET',
           headers: {
-            'Authorization': `Bearer ${this.session.data.authenticated.user.uid}`
+            'Authorization': `Bearer ${this.session.data.authenticated.user.xa}`
           }
         });
         this.get("firebaseApp").auth().then(({currentUser}) => {
