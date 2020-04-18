@@ -1,3 +1,9 @@
+<style>
+  a {
+    cursor: pointer
+  }
+</style>
+
 {{!-- template-lint-disable no-triple-curlies--}}
 <div class="ui huge dividing header">
   {{#if model.title}}
@@ -87,9 +93,13 @@ Created: {{moment-from-now model.createdAt}}; Last Update: {{moment-from-now mod
   </div>
   <div class="field">
     <label for="">Original Document Image</label>
-    <a href="https://api-letterman.herokuapp.com/api/stream?fileName={{model.imageUrl}}&token={{session.data.authenticated.user.xa}}" target="_blank" rel="noreferrer">
-      <i class="paperclip icon"></i> Open Image
-    </a>
+    {{#if loader}}
+      <div class="ui active inline text loader">Loading Image</div>
+    {{else}}
+      <a role="button" {{action "openImage"}}>
+        <i class="paperclip icon"></i> Open Image
+      </a>
+    {{/if}}
   </div> 
   <div class="field">
     <label for="">Content of Document</label>

@@ -5,12 +5,27 @@ import { inject as service } from '@ember/service';
 export default Controller.extend({
   toast: service('toast'),
   session: service(),
+  ajax: service(),
 
   ifExists(name) {
     return this.model.newLabels.includes(name);
   },
 
   actions: {
+    async openImage() {
+      try {
+        set(this, "loader", true);
+        const received = await this.ajax.request("https://api-letterman.herokuapp.com/api/ping");
+        if(received) {
+          window.open(`https://api-letterman.herokuapp.com/api/stream?fileName=${this.model.imageUrl}&token=${this.session.data.authenticated.user.xa}`);
+        }
+        set(this, "loader", false);
+      } catch (error) {
+        set(this, "loader", false);
+        throw error;
+      }
+    },
+
     addLabel(label) {
       if(!this.ifExists(label)) {
         this.model.newLabels.pushObject(label);

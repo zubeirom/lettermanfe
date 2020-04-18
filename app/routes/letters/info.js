@@ -15,7 +15,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
       labels.forEach((label) => {
         model.labels.pushObject(label.name);
       });
-      await this.ajax.request("https://api-letterman.herokuapp.com/api/ping");
     } catch (error) {
       throw error;
     }
