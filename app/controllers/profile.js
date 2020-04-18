@@ -3,11 +3,13 @@ import { inject as service } from '@ember/service';
 import ENV from "../config/environment";
 import firebase from 'firebase/app';
 import { set } from '@ember/object';
+import fetch from 'fetch';
 
 export default Controller.extend({
   session: service(),
   firebaseApp: service(),
   toast: service('toast'),
+  ajax: service(),
 
   actions: {
     invalidate() {
