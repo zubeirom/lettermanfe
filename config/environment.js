@@ -67,7 +67,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.host = "https://api-letterman.now.sh";
+    ENV.host = "https://letterman-api.azurewebsites.net";
     // here you can enable a production-specific feature
   }
   return ENV;

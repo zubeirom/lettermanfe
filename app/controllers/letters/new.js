@@ -1,6 +1,7 @@
 import Controller from "@ember/controller";
 import { task } from "ember-concurrency";
 import { set, get } from "@ember/object";
+import ENV from "lettermanfe/config/environment";
 import { inject as service } from '@ember/service';
 
 export default Controller.extend({
@@ -24,8 +25,7 @@ export default Controller.extend({
     set(image, "name", image.id + "." + image.extension);
 
     try {
-      
-      yield image.upload('https://api-letterman.herokuapp.com/api/upload');
+      yield image.upload(`${ENV.host}/api/upload`);
       const document = this.store.createRecord('letter', {
         title: this.newtitle,
         imageUrl: image.name,
