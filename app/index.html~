@@ -85,8 +85,7 @@
         <h1 class="ui white header" id="load-header" style="color: white;">
           Letterman
           <div class="sub header" style="color: white;" id="loadsubheader">
-            Digitize your Documents </br>
-	    Server is starting up
+            Digitize your Documents
           </div>
         </h1>
       </div>
