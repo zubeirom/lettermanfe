@@ -19,6 +19,7 @@ export default Controller.extend({
   actions: {
     async authGoogle() {
       try {
+        this.toast.info('Server (heroku) is starting up, this might take few seconds', 'Important Info');
         set(this, "loading", true);
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.GoogleAuthProvider();
@@ -38,6 +39,7 @@ export default Controller.extend({
 
     async authFacebook() {
       try {
+        this.toast.info('Server (heroku) is starting up, this might take few seconds', 'Important Info');
         set(this, "loading", true);
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.FacebookAuthProvider();
@@ -57,6 +59,7 @@ export default Controller.extend({
 
     async authTwitter() {
       try {
+        this.toast.info('Server (heroku) is starting up, this might take few seconds', 'Important Info');
         set(this, "loading", true);
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.TwitterAuthProvider();
@@ -76,6 +79,7 @@ export default Controller.extend({
 
     async authGithub() {
       try {
+        this.toast.info('Server (heroku) is starting up, this might take few seconds', 'Important Info');
         set(this, "loading", true);
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.GithubAuthProvider();
@@ -95,6 +99,7 @@ export default Controller.extend({
 
     async authMicrosoft() {
       try {
+        this.toast.info('Server (heroku) is starting up, this might take few seconds', 'Important Info');
         set(this, "loading", true);
         const auth = await this.get('firebaseApp').auth();
         const provider = new firebase.auth.OAuthProvider('microsoft.com');
